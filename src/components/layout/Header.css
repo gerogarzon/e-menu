@@ -1,0 +1,29 @@
+.personalizedNavbar{
+    background-color: black !important;
+    color: white !important;
+   
+
+}
+.logo{
+    height: 59px;
+
+}
+.navbarColor{
+    color: white !important;
+}
+
+.navbar-toggler-icon{
+    background-image: url(http://assets.stickpng.com/images/588a64e0d06f6719692a2d10.png) !important;
+}
+#navbarScrollingDropdown{
+    color: white !important;
+    
+}
+.dropdown-menu {
+    background-color: black;
+    color: white !important;
+}
+.dropdown-item{
+    color: white !important;
+
+}
