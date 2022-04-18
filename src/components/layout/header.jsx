@@ -12,7 +12,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import Logo from "../../resources/e-menu (3).png";
-import "./Header.css";
+import "./styles.css";
 
 const Header = () => {
   return (
@@ -38,7 +38,7 @@ const Header = () => {
 
               <NavDropdown
                 className="navbarColor"
-                title="Categorias"
+                title="Menú"
                 id="navbarScrollingDropdown"
               >
                 
