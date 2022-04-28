@@ -1,20 +1,34 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Card, Container, Row, Col } from "react-bootstrap";
 
 import Caliente from "../../resources/caliente.jpg";
-import Fria from "../../resources/frias.jpg"
-import Postres from "../../resources/postres.jpg"
-import Bebidas from "../../resources/bebidas.jpg"
+// import Fria from "../../resources/frias.jpg"
+// import Postres from "../../resources/postres.jpg"
+// import Bebidas from "../../resources/bebidas.jpg"
+// import logo from "../../resources/logo.png"
 import "./styles.css";
 
 const Body = () => {
+   
+  const [category, setCategories] = useState([]);
+  // const url = 'http://localhost:3100/menus'
+
+  useEffect(() => {
+    fetch('http://localhost:3100/api/menus')
+    
+    .then((response) =>  response.json())
+    .then((data) => setCategories(data.menusDB))
+  },[])
+
   return (
     <>
     <Container fluid className="ancho100">
       <Container fluid className="ancho50">
         <Row className="rowPersonalized">
           <Col className="paddingBtn">
-            <Card
+            {category.map(item => {
+              return (
+                <Card
               border="dark"
               style={{ width: "100%", height: "200px" }}
               className="bg-whithe text-dark "
@@ -25,17 +39,23 @@ const Body = () => {
                 alt="Card image"
               />
               <Card.ImgOverlay >
-                <Card.Title className="text-white">
-                  Comidas Calientes
+                <Card.Title className="text-dark">
+                 {item.title}
                 </Card.Title>
-                <Card.Text className="text-white">
-                  Aca Descripcion o algoooooooooooooooooooooooo
+                <Card.Text className="text-dark">
+                {item.description}
+                </Card.Text>
+                <Card.Text className="text-dark">
+                ${item.price}
                 </Card.Text>
               </Card.ImgOverlay>
             </Card>
+              )
+            })}
+            
           </Col>
         </Row>
-        <Row className="rowPersonalized">
+        {/* <Row className="rowPersonalized">
           <Col className="paddingBtn">
             <Card
               border="dark"
@@ -97,7 +117,7 @@ const Body = () => {
               </Card.ImgOverlay>
             </Card>
           </Col>
-        </Row>
+        </Row> */}
       </Container>
       </Container>
     </>
