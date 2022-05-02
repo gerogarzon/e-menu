@@ -28,7 +28,7 @@
     color: white !important;
 
 }
-.ancho50{
+/* .ancho50{
     width: 50%;
     
     background-color: black !important;
@@ -37,13 +37,10 @@
     width: 100 vw;
     background-color: black !important;
   
-}
+} */
 .rowPersonalized {
     text-align: center;
-  
-  
-
-}
+  }
 .footerPersonalized{
     color: white;
     background-color: black;
@@ -52,3 +49,31 @@
 .paddingBtn{
     padding-bottom:20px!important;
 }
+
+/*  ------------------------------ */
+.card-items{
+        align-items: center;
+        width: 20rem !important;
+        /* margin-left: 30px; */
+        
+       
+    
+}
+/* --------------------------------------------- */
+ .group-count{
+    justify-content: center;
+ }
+ .btn-agregar{
+     background-color: #fdbd39 !important;
+     border-color: #FCE877 !important;
+     color: rgb(15, 15, 15);
+     width: 100px !important;
+     /* margin-left: 110px; */
+     border-radius: 20px;
+ }
+ .group-counter{
+     width: 200px;
+ }
+ .btn-counter{
+     width: 30px;
+ }
