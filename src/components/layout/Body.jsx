@@ -6,11 +6,11 @@ import "./styles.css";
 
 const Body = () => {
   const [items, setItems] = useState([]);
-
+ const url = process.env.REACT_APP_URL
 
 
   useEffect(() => {
-    fetch("http://localhost:3100/api/menus")
+    fetch(`${url}/menus`)
       .then((response) => response.json())
       .then((data ) => setItems(data.menusDB));
   }, []);
@@ -20,7 +20,7 @@ const Body = () => {
       <Container fluid >
 
         {/* <Container fluid className="ancho50"> */}
-        <h2 className="text-center mt-2"> Nuestro menu </h2>
+        <h2 className="text-center mt-2"> Nuestro menú </h2>
         <br></br>
           <Row className="rowPersonalized">
 
