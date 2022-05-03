@@ -29,7 +29,7 @@ const ItemCount = ({ initial, stock, onAdd }) => {
       </ButtonGroup>
       </ButtonToolbar>
      
-      <Button variant="warning" className="mt-2 btn-agregar" onClick={() => onAdd(contador)}>Agregar</Button>
+      <Button variant="success" className="mt-2 btn-agregar" onClick={() => onAdd(contador)}>Agregar</Button>
       <br></br>
     </>
   );

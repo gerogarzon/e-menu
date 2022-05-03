@@ -7,6 +7,7 @@ import {
   Route,
 } from "react-router-dom";
 import Main from "../src/components/main/Main"
+import Admin from "../src/components/admin/Admin"
 
 
 
@@ -15,7 +16,7 @@ function App() {
    <>
     <BrowserRouter>
     <Routes>
-  
+    <Route path="/admin" element={<Admin />} />
       <Route path="/" element={<Main />} />
     </Routes>
 

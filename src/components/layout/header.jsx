@@ -11,7 +11,7 @@ import {
 } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import Logo from "../../resources/e-menu (3).png";
+import Logo from "../../resources/logo2.png";
 import "./styles.css";
 
 const Header = () => {

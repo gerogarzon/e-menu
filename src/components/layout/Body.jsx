@@ -2,25 +2,30 @@ import React, { useState, useEffect } from "react";
 import { Card, Container, Row, Col, Image } from "react-bootstrap";
 import Comida from "../../resources/comidita.jpg"
 import ItemCount from "./ItemCount.jsx";
+import Banner from "../../resources/Banner.jpg"
+import Categories from "./Categories"
 import "./styles.css";
 
 const Body = () => {
   const [items, setItems] = useState([]);
- const url = process.env.REACT_APP_URL
+
 
 
   useEffect(() => {
-    fetch(`${url}/menus`)
+    fetch("http://localhost:3100/api/menus")
       .then((response) => response.json())
       .then((data ) => setItems(data.menusDB));
   }, []);
 
   return (
     <>
-      <Container fluid >
-
-        {/* <Container fluid className="ancho50"> */}
-        <h2 className="text-center mt-2"> Nuestro menú </h2>
+      <Container fluid className="menus-container">
+      <Image fluid src={Banner} className="banner-img"/>
+        <Container>
+        <br/>
+        <Categories/>
+        <br/>
+        <h2 className="text-center body-menu"> Nuestro menu </h2>
         <br></br>
           <Row className="rowPersonalized">
 
@@ -33,20 +38,24 @@ const Body = () => {
                   style={{ width: "auto" }}
                   className="card-items text-dark "
                 >
-                  <Card.Title className="text-dark mt-2">
+                  
+                  <Image fluid src={Comida} className="item-image"/>
+                  <p className="category-item">{item.category}</p>
+                  <Card.Title className="item-name">
                     {item.title}
                   </Card.Title>
-                  <Image fluid src={Comida} />
-                  <Card.Text className="text-dark">
+                  <p className="text-dark item-text">
                     {item.description}
-                  </Card.Text>
-                  <Card.Text className="text-dark">${item.price}</Card.Text>
+                  </p>
+                  <p className="text-dark">${item.price}</p>
                   <ItemCount/>
                 </Card>
+                <br/>
               </Col>
             );
           })}
           </Row>
+          </Container>
          <br></br>
       </Container>
     </>
