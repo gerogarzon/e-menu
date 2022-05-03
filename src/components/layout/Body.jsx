@@ -26,7 +26,7 @@ const Body = () => {
 
           {items?.map((item) => {
             return (
-              <Col md="3" xs>
+              <Col key={item._id} md="3" xs>
 
                 <Card key={item._id}
                   border="#edeef2"

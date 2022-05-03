@@ -21,7 +21,7 @@ const ItemCount = ({ initial, stock, onAdd }) => {
   return (
     <>
             <ButtonToolbar aria-label="Toolbar with button groups" className="group-count">
-      <ButtonGroup classname="group-counter">
+      <ButtonGroup className="group-counter">
         <Button variant="outline-dark" onClick={() => restar()}>-</Button>
         {/* <input className="form-control" value={contador} readOnly /> */}
         <Button variant="outline-dark" className="btn-counter" disabled readOnly>{contador}</Button>
