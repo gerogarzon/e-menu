@@ -25,7 +25,7 @@ const Body = () => {
         <br/>
         <Categories/>
         <br/>
-        <h2 className="text-center body-menu"> Nuestro menu </h2>
+        <h2 className="text-center body-menu"> Nuestro menú </h2>
         <br></br>
           <Row className="rowPersonalized">
 
@@ -39,7 +39,7 @@ const Body = () => {
                   className="card-items text-dark "
                 >
                   
-                  <Image fluid src={Comida} className="item-image"/>
+                  <Image fluid src={item.picture} className="item-image"/>
                   <p className="category-item">{item.category}</p>
                   <Card.Title className="item-name">
                     {item.title}
