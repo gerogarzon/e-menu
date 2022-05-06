@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, ButtonGroup, ButtonToolbar, Container } from "react-bootstrap";
+import { Button, ButtonGroup, ButtonToolbar } from "react-bootstrap";
 
 const ItemCount = ({ initial, stock, onAdd }) => {
   const [contador, setContador] = useState(initial);
