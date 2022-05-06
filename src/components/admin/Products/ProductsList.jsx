@@ -16,12 +16,18 @@ const ProductsList = () => {
       <Divider orientation="left">Products List:</Divider>
       {items?.map((item) => {
         return (
+           
           <List key={item._id}
             size="small"
             bordered
             dataSource={items}
-            renderItem={(items) => <List.Item>{item.title}</List.Item>}
+            renderItem={(items) => <>
+            <List.Item className="ProductListItem" >{item.title}</List.Item>
+            <List.Item className="ProductListItem">{item.description}</List.Item>
+            </>
+        }
           />
+          
         );
       })}
       

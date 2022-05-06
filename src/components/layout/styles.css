@@ -49,11 +49,12 @@
 }
 .card-items{
         align-items: center;
-        width: 14rem !important;
+        width: 100%;
         margin-left: 30px;
         border-radius:12px;    
-        background-color: hwb(120 39% 6%);
+        background-color: #fcf9f9;
         box-shadow: 0 0 9px 2px #dddcdc;
+        margin: 0;
        
 }
 
@@ -81,7 +82,7 @@
      border-radius: 20px;
  }
  .group-counter{
-     width: 200px;
+     width: 100%;
  }
  .btn-counter{
      width: 30px;
