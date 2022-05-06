@@ -25,7 +25,7 @@ const Body = () => {
         <br/>
         <Categories/>
         <br/>
-        <h2 className="text-center body-menu"> Nuestro menú </h2>
+        <h2 className="text-center body-menu"> Nuestro menú: </h2>
         <br></br>
           <Row className="rowPersonalized">
 
