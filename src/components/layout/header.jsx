@@ -17,10 +17,10 @@ import "./styles.css";
 const Header = () => {
   return (
     <>
-      <Navbar className="personalizedNavbar" expand="lg">
+      <Navbar className="personalizedNavbar m-0 p-0" expand="lg">
         <Container fluid>
-          <Navbar.Brand href="#">
-            <Image className="logo" src={Logo} />
+          <Navbar.Brand href="#" className="m-0">
+            <Image className="logo m-0" src={Logo} />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">

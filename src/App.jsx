@@ -6,8 +6,10 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import Main from "../src/components/main/Main"
-import Admin from "../src/components/admin/Admin"
+import Main from "./components/main/Main"
+import Admin from "./components/admin/Admin"
+import Login from './pages/Login/Login';
+import 'antd/dist/antd.css';  
 
 
 
@@ -18,8 +20,8 @@ function App() {
     <Routes>
     <Route path="/admin" element={<Admin />} />
       <Route path="/" element={<Main />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
-
   </BrowserRouter>
    </>
   );
