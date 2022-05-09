@@ -35,6 +35,9 @@ const Header = () => {
               <Nav.Link className="navbarColor" href="#action1">
                 Sobre Nosotros
               </Nav.Link>
+              <Nav.Link className="navbarColor nav_login" href="/login">
+                Login
+              </Nav.Link>
 
               <NavDropdown
                 className="navbarColor"

@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import Main from "./components/main/Main"
 import Admin from "./components/admin/Admin"
-import Login from './pages/Login/Login';
+import {Login} from './pages/Login/Login';
 import 'antd/dist/antd.css';  
 
 

@@ -10,7 +10,7 @@ import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Swal from "sweetalert2";
 
-const Login = () => {
+export const Login = () => {
   const [loginError, showLoginError] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const onLogin = async (loginData) => {
@@ -58,7 +58,7 @@ const Login = () => {
         <Row>
           <Col className=" welcome-text d-flex" md={8}>
             <Container className="justify-content-center d-flex align-items-center container-sm">
-              <h1 className="p-0 m-0 welcome-text  text-center text-align-center">
+              <h1 className="p-0 m-0 mb-2 welcome-text  text-center text-align-center">
                 ¡Bienvenido!
                 <br />
                 <br />
@@ -91,7 +91,6 @@ const Login = () => {
                   variant="primary"
                   className="mb-2"
                   type="submit"
-                  onFinish
                 >
                   Ingresar
                 </Button>
@@ -112,4 +111,3 @@ const Login = () => {
     </>
   );
 };
-export default Login;
