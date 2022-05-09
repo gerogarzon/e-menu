@@ -1,23 +1,32 @@
-import React from 'react'
-import { Layout } from 'antd';
+import React from "react";
+import { Layout } from "antd";
+import Adminheader from '../admin/AdminLayout/AdminHeader'
+import Aside from "../admin/AdminLayout/Aside"
+import ProductsList from "../admin/Products/ProductsList"
+import './AdminStyles.css';
 
-const { Header, Footer, Sider, Content } = Layout;
+
+const {   Sider, Content } = Layout;
 
 const Admin = () => {
   return (
     <>
+      <Layout className="adminBackground">
+        
+          <Adminheader/>
+       
+        <Layout>
+          <Sider>
+            <Aside/>
+          </Sider>
+          <Content>
+            <ProductsList/>
+          </Content>
+        </Layout>
+        
+      </Layout>
+    </>
+  );
+};
 
-  <Layout>
-    <Sider>Sider</Sider>
-    <Layout>
-      <Header>Header</Header>
-      <Content>Content</Content>
-      <Footer>Footer</Footer>
-    </Layout>
-  </Layout>
-  
-  </>
-  )
-}
-
-export default Admin
+export default Admin;

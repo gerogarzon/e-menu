@@ -1,0 +1,13 @@
+section>aside {
+    background-color: #f5f5f5!important;
+}
+ul{
+    background-color: #f5f5f5!important; 
+}
+
+/* Product List */
+
+.ProductListItem{
+    display: inline-block;
+        
+}
