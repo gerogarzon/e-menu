@@ -1,6 +1,7 @@
 .welcome-text{
     color:#47b63a;
     background-image: url('../../resources/fondo.png') ;
+    object-fit: cover;
 }
 
 .login-container{

@@ -2,55 +2,54 @@ import Footer from "../../components/layout/Footer";
 import Header from "../../components/layout/header";
 import { Button, Container, Form, Row, Col, Alert } from "react-bootstrap";
 import React, { useState } from "react";
-import { URL } from "../../constants/config";
 import axios from "axios";
-import ModalRegister from "../../components/Modal/ModalRegister";
+import {ModalRegister} from "../../components/Modal/ModalButton";
 import "./login.css";
 import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Swal from "sweetalert2";
+import { useForm } from "react-hook-form";
+const URL = process.env.REACT_APP_URL;
+
+
 
 export const Login = () => {
   const [loginError, showLoginError] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
-  const onLogin = async (loginData) => {
+  const {register, handleSubmit } = useForm();
+  const onSubmit = async(loginData, event) => {
     try {
-      console.log(loginData);
       const login = await axios.post(`${URL}/login`, loginData);
       localStorage.setItem("userToken", JSON.stringify(login.data.token));
       localStorage.setItem("currentUser", JSON.stringify(login.data.user));
 
-      const Toast = Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.addEventListener("mouseenter", Swal.stopTimer);
-          toast.addEventListener("mouseleave", Swal.resumeTimer);
-        },
-      });
 
-      Toast.fire({
-        icon: "success",
-        title: "Loggin exitoso",
-      });
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: `Bienvenido ${login.data.user.fullname}`,
+        showConfirmButton: false,
+        timer: 1500
+      }
+      )
+      event.target.reset()
+      window.location.assign(`http://localhost:3000/admin`)
+
     } catch (error) {
       setErrorMsg(error.response.data.msg);
       showLoginError(true);
       setTimeout(() => showLoginError(false), 2000);
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: `${error}`,
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
-    Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text: "Algo ha salido mal!",
-      footer: '<a href="">Error al intentar loggearte</a>',
-    });
-  };
 
-  // function onFinishFailed() {};
 
+  }
   return (
     <>
       <Header />
@@ -66,23 +65,22 @@ export const Login = () => {
               </h1>
             </Container>
           </Col>
-          <Col className="" md={4}>
+          <Col className="Col-Loginform" md={4}>
             <Container className="login-container ">
-              <Form id="loginForm" onFinish={onLogin} autoComplete="off">
+              <Form id="loginForm" onSubmit={handleSubmit(onSubmit)}>
                 <h1 className="mb-3 text-center text-white">
                   Ingrese su cuenta
                 </h1>
                 <Form.Group className="mb-3 text-white" controlId="Email">
                   <Form.Label>Email</Form.Label>
-                  <Form.Control type="email" placeholder="Enter email" />
+                  <Form.Control type="text" placeholder="Email" {...register("email", {required: {value:true,message:'Debes ingresar un email valido'}, pattern: /^\S+@\S+$/i})} />
                   <Form.Text className="text-muted">
-                    Nunca compartas tu usuario.
+                    `Nunca compartas tu usuario.`
                   </Form.Text>
                 </Form.Group>
-
                 <Form.Group className="mb-3 text-white" controlId="Password">
                   <Form.Label>Contraseña</Form.Label>
-                  <Form.Control type="password" placeholder="Password" />
+                  <Form.Control type="password" placeholder="Password" {...register("password", {required: true,pattern: /^[A-Za-z]+$/i })} />
                 </Form.Group>
                 <Form.Group className="mb-3 text-white" controlId="checked">
                   <Form.Check type="checkbox" label="Check me out" />
@@ -98,13 +96,7 @@ export const Login = () => {
               </Form>
             </Container>
           </Col>
-          <Alert
-            message={errorMsg}
-            type="error"
-            key="alert"
-            variant="alert"
-            className={loginError ? "show" : "hidden"}
-          />
+        
         </Row>
       </Container>
       <Footer />
