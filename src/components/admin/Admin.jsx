@@ -3,6 +3,7 @@ import { Layout } from "antd";
 import Adminheader from '../admin/AdminLayout/AdminHeader'
 import Aside from "../admin/AdminLayout/Aside"
 import ProductsList from "../admin/Products/ProductsList"
+import ProductsAdd from "./Products/ProductsAdd"
 import './AdminStyles.css';
 
 
@@ -20,6 +21,7 @@ const Admin = () => {
             <Aside/>
           </Sider>
           <Content>
+            <ProductsAdd/>
             <ProductsList/>
           </Content>
         </Layout>

@@ -27,7 +27,7 @@ const Categories = () => {
                 >
                   <Row>
                     <Col md={4}>
-                      <Image  src={Cookie} className="img-category "/>
+                      <Image  src={categories.picture} className="img-category"/>
                     </Col>
                     <Col md={8}>
                       <Card.Title className="name-category m-2">

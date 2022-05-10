@@ -1,13 +1,23 @@
 section>aside {
-    background-color: #f5f5f5!important;
+    background-color: #F8F9FA!important;
 }
 ul{
-    background-color: #f5f5f5!important; 
+    background-color: #F8F9FA!important; 
+}
+main {
+    background-color:white!important; 
 }
 
 /* Product List */
 
 .ProductListItem{
     display: inline-block;
-        
+    margin-left: 30px;
+}
+.ant-layout {
+    overflow-x: hidden;
+}
+.productListTitles {
+    margin-left: 30px;
+    /* text-align: center; */
 }

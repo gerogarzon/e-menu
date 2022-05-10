@@ -8,6 +8,7 @@
 .logo{
     height: 59px;
     margin-right: 20px;
+    margin-top: 5px;
 
 }
 .navbarColor{
@@ -127,12 +128,16 @@
    color: #fff;
  }
  .name-category{
-    font-size: 15px !important;
+    font-size: 17px !important;
+    /* justify-content: center;
+    align-items: center; */
 
  }
  .img-category{
-     width: 60px !important;
-     margin-left: 2px;
+     width: 85px !important;
+     padding-right: 4px;
+     border-radius: 13px;
+     
  }
 
  /* ---------------------Footer--------------------- */
