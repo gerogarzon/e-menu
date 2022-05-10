@@ -43,38 +43,38 @@ const ProductsList = () => {
         return (
           <>
             <Row key={item._id}>
-              <Col>
-                <List.Item className="ProductListItem">{item.title}</List.Item>
+              <Col >
+                <List.Item className="ProductListItem" >{item.title}</List.Item>
               </Col>
 
-              <Col>
-                <List.Item className="ProductListItem">
+              <Col >
+                <List.Item className="ProductListItem" >
                   {item.description}
                 </List.Item>
               </Col>
 
-              <Col>
-                <List.Item className="ProductListItem">
+              <Col >
+                <List.Item className="ProductListItem" >
                   {item.category}
                 </List.Item>
               </Col>
 
-              <Col>
-                <List.Item className="ProductListItem">
+              <Col >
+                <List.Item className="ProductListItem" >
                   $ {item.price}
                 </List.Item>
               </Col>
 
-              <Col>
-                <Button className="m-2" type="danger">
+              <Col >
+                <Button className="m-2" type="danger" >
                   <DeleteOutlined />
                 </Button>
-                <Button type="secondary">
+                <Button type="secondary" >
                   <EditOutlined />
                 </Button>
               </Col>
 
-              <Divider orientation="left"></Divider>
+              <Divider orientation="left" ></Divider>
             </Row>
           </>
         );

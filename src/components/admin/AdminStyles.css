@@ -21,3 +21,13 @@ main {
     margin-left: 30px;
     /* text-align: center; */
 }
+/* styles for add menu button in productAdd */
+
+.AddButton {
+
+text-align: right!important;
+margin-right:100px!important;
+margin-top: 10px!important;
+
+
+}
