@@ -6,21 +6,40 @@ import Categories from "./Categories";
 import "./styles.css";
 
 const Body = () => {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState([]); 
+  const [origin, setOrigin] = useState([]);
+
 
   useEffect(() => {
     fetch("http://localhost:3100/api/menus")
       .then((response) => response.json())
-      .then((data) => setItems(data.menusDB));
+      .then((data) => {
+        setItems(data.menusDB)
+        setOrigin(data.menusDB)
+    }
+        
+     );
   }, []);
 
+const filterByCategory = (category) => {
+
+const filteredItems = origin.filter(elemento => { 
+  if(elemento.category === category) return true;
+
+  console.log(elemento);
+})
+console.log(filteredItems);
+console.log(category);
+setItems (filteredItems);
+  }
+  
   return (
     <>
       <Container fluid className="menus-container">
         <Image fluid src={Banner} className="banner-img" />
         <Container>
           <br />
-          <Categories />
+          <Categories filterByCategory={filterByCategory} />
           <br />
           <h2 className="text-center body-menu"> Nuestro menú: </h2>
           <br></br>

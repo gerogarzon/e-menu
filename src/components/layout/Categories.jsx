@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Card, Container, Row, Col, Image } from "react-bootstrap";
 import Cookie from "../../resources/icons/galletas.png"
-const Categories = () => {
+
+
+const Categories = ({filterByCategory}) => {
   const [category, setCategory] = useState([]);
 
   useEffect(() => {
@@ -19,7 +21,7 @@ const Categories = () => {
           {category?.map((categories) => {
             return (
               <Col key={categories._id}>
-                <Card
+                <Card onClick={()=> filterByCategory(categories.name)}
                   key={categories._id}
                   border="#edeef2"
                   style={{ width: "auto" }}
