@@ -16,14 +16,13 @@ const Body = () => {
       .then((data) => {
         setItems(data.menusDB)
         setOrigin(data.menusDB)
-    }
-        
+    }        
      );
   }, []);
 
 const filterByCategory = (category) => {
 
-const filteredItems = origin.filter(elemento => {if(elemento.category === category) return true});
+const filteredItems = origin.filter(elemento => {if(elemento.category === category) return true} );
 setItems (filteredItems);
 
   }
