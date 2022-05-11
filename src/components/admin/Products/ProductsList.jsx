@@ -42,7 +42,7 @@ const ProductsList = () => {
       {items?.map((item) => {
         return (
           <>
-            <Row key={item._id}>
+            <Row key={item._id} >
               <Col >
                 <List.Item className="ProductListItem" >{item.title}</List.Item>
               </Col>
