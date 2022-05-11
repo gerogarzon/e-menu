@@ -13,7 +13,6 @@ const Admin = () => {
     <>
       <Layout className="adminBackground">
         <Adminheader />
-
         <Layout>
           <Sider>
             <Aside />

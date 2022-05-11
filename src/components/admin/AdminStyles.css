@@ -1,5 +1,6 @@
 section>aside {
     background-color: #F8F9FA!important;
+    height: 100%;
 }
 ul{
     background-color: #F8F9FA!important; 
@@ -18,9 +19,11 @@ main {
     overflow-x: hidden;
 }
 .productListTitles {
-    margin-left: 30px;
-    /* text-align: center; */
+    margin-left: 46px;
+    
 }
+
+
 /* styles for add menu button in productAdd */
 
 .AddButton {
@@ -28,6 +31,22 @@ main {
 text-align: right!important;
 margin-right:100px!important;
 margin-top: 10px!important;
+}
 
+/* aside styles */
 
+.asideLinks{
+    padding-left: 30px;
+    colo:black!important;
+
+}
+.ant-menu-light .ant-menu-item-active{
+    color:black!important;
+    padding: 30px;
+}
+.ant-layout.ant-layout-has-sider{
+    background-color: #F8F9FA!important;
+}
+li {
+    padding-left: 20px!important;
 }

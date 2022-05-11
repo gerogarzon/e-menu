@@ -1,34 +1,49 @@
-import React from 'react'
-import { ContainerOutlined, DesktopOutlined, HomeOutlined } from '@ant-design/icons'
-import { Menu } from 'antd'
+import React from "react";
+import {
+  ContainerOutlined,
+  DesktopOutlined,
+  HomeOutlined,
+} from "@ant-design/icons";
+import { Menu } from "antd";
+import "../../admin/AdminStyles.css";
+
 const Aside = () => {
   return (
     <>
-    
-    <Menu
-          defaultSelectedKeys={['1']}
-          defaultOpenKeys={['sub1']}
-          mode="inline"
-          theme="light"
+      <Menu
+        defaultSelectedKeys={["1"]}
+        defaultOpenKeys={["sub1"]}
+        mode="inline"
+        theme="light"
         //   inlineCollapsed={this.state.collapsed}
-        >
-          <Menu.Item key="1" icon={<HomeOutlined />}>
+      >
+        <a href="http://localhost:3000" className="aLink">
+          <Menu.Item key="1" icon={<HomeOutlined />} className="asideLinks">
             Home
           </Menu.Item>
-          <Menu.Item key="2" icon={<DesktopOutlined />}>
+        </a>
+        <a href="/adminProducts">
+          <Menu.Item key="2" icon={<DesktopOutlined />} className="asideLinks">
             Product list
           </Menu.Item>
-          <Menu.Item key="3" icon={<DesktopOutlined />}>
+        </a>
+        <a>
+          <Menu.Item key="3" icon={<DesktopOutlined />} className="asideLinks">
             Orders List
           </Menu.Item>
-          <Menu.Item key="4" icon={<ContainerOutlined />}>
-           Users
+        </a>
+        <a href="/adminUsers">
+          <Menu.Item
+            key="4"
+            icon={<ContainerOutlined />}
+            className="asideLinks"
+          >
+            Users
           </Menu.Item>
-        </Menu>
-    
-    
+        </a>
+      </Menu>
     </>
-  )
-}
+  );
+};
 
-export default Aside
+export default Aside;

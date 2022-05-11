@@ -5,68 +5,68 @@ import { useState, useEffect } from "react";
 import "../../admin/AdminStyles.css";
 import { Row, Col } from "react-bootstrap";
 
-const ProductsList = () => {
-  const [items, setItems] = useState([]);
+const UsersList = () => {
+    
+  const [users, setUsers] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3100/api/menus")
+    fetch("http://localhost:3100/api/users")
       .then((response) => response.json())
-      .then((data) => setItems(data.menusDB));
+      .then((data) => setUsers(data.usersDB));
   }, []);
 
-
+console.log(users)
 
 
   return (
     <>
       <Divider orientation="left">
-        <h5>Products List:</h5>
+        <h5>Users List:</h5>
       </Divider>
       <Row>
         <Col className="productListTitles">
-          <b>Title</b>
+          <b>Full Name</b>
         </Col>
         <Col className="productListTitles">
-          <b>Description</b>
+          <b>Email</b>
         </Col>
         <Col className="productListTitles">
-          <b>Category</b>
+          <b>Status</b>
         </Col>
         <Col className="productListTitles">
-          <b>Price</b>
+          <b>Role</b>
         </Col>
         <Col className="productListTitles">
           <b>Actions</b>
         </Col>
       </Row>
       <Divider orientation="left"></Divider>
-      {items?.map((item) => {
+      {users?.map((userItem) => {
         return (
           <>
-            <Row key={item._id} >
+            <Row >
               <Col >
-                <List.Item className="ProductListItem" >{item.title}</List.Item>
+                <List.Item className="ProductListItem" >{userItem.fullname}</List.Item>
               </Col>
 
               <Col >
                 <List.Item className="ProductListItem" >
-                  {item.description}
+                  {userItem.email}
                 </List.Item>
               </Col>
 
               <Col >
                 <List.Item className="ProductListItem" >
-                  {item.category}
+                  {userItem.status}
                 </List.Item>
               </Col>
 
               <Col >
                 <List.Item className="ProductListItem" >
-                  $ {item.price}
+                  $ {userItem.role}
                 </List.Item>
               </Col>
 
               <Col >
-              
                 <Button className="m-2" type="danger" >
                   <DeleteOutlined />
                 </Button>
@@ -84,4 +84,4 @@ const ProductsList = () => {
   );
 };
 
-export default ProductsList;
+export default UsersList;

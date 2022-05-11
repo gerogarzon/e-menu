@@ -3,9 +3,6 @@ import {
   Navbar,
   Container,
   Nav,
-  NavDropdown,
-  Form,
-  FormControl,
   Button,
   Image,
 } from "react-bootstrap";
@@ -19,7 +16,6 @@ const Header = () => {
     <>
       <Navbar className="personalizedNavbar m-0 p-0" expand="lg">
         <Container fluid>
-
           <Navbar.Brand href="/" className="m-0 emenuLogo">
             <Image className="logo m-0" src={Logo} />
           </Navbar.Brand>
@@ -27,7 +23,7 @@ const Header = () => {
           <Navbar.Collapse id="navbarScroll">
             <Nav
               className="me-auto "
-              style={{ maxHeight: "100px"}}
+              style={{ maxHeight: "100px" }}
               navbarScroll
             >
               <Nav.Link className="navbarColor" href="/">
@@ -36,21 +32,16 @@ const Header = () => {
               <Nav.Link className="navbarColor" href="#action1">
                 Sobre Nosotros
               </Nav.Link>
-
-             
             </Nav>
-            
-               <Nav>
-               <Nav.Link className="navbarColor nav_login me-3" href="/login">
+            <Nav>
+              <Nav.Link className="navbarColor nav_login me-3" href="/login">
                 Login
               </Nav.Link>
               <Button variant="outline-success" className="me-2">
                 {" "}
                 <FontAwesomeIcon icon={faCartShopping} />{" "}
               </Button>
-                 </Nav>   
-             
-          
+            </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
