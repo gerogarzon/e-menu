@@ -68,7 +68,7 @@ const UsersAdd = () => {
                 type="text"
                 name="fullname"
                 placeholder="Enter fullname"
-                {...register("fullname", { required: true, maxLength: 100 })}
+                {...register("fullname", { required: true, maxLength: 30 })}
               />
             </Form.Group>
 
@@ -78,7 +78,7 @@ const UsersAdd = () => {
                 type="email"
                 name="email"
                 placeholder="Enter Email"
-                {...register("email", { required: true })}
+                {...register("email", { required: true,maxLength: 50 })}
               />
             </Form.Group>
 
@@ -88,7 +88,7 @@ const UsersAdd = () => {
                 type="password"
                 name="password"
                 placeholder="Enter password"
-                {...register("password", { required: true })}
+                {...register("password", { required: true, maxLength: 30 })}
               />
             </Form.Group>
 

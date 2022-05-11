@@ -67,7 +67,7 @@ const ProductsAdd = () => {
                 type="text"
                 name="title"
                 placeholder="Enter Name"
-                {...register("title", { required: true, maxLength: 100 })}
+                {...register("title", { required: true, maxLength: 30 })}
               />
             </Form.Group>
 
@@ -77,7 +77,7 @@ const ProductsAdd = () => {
                 type="text"
                 name="description"
                 placeholder="Enter Description"
-                {...register("description", { required: true })}
+                {...register("description", { required: true,maxLength: 100 })}
               />
             </Form.Group>
 
@@ -87,7 +87,7 @@ const ProductsAdd = () => {
                type="text"
                name="category"
                placeholder="Enter Description"
-               {...register("category", { required: true })}
+               {...register("category", { required: true, })}
                 id="disabledSelect" >
                 <option>Comidas Calientes</option>
                 <option>Comidas Frias</option>
