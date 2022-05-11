@@ -1,0 +1,12 @@
+.welcome-text{
+    color:#47b63a;
+    background-image: url('../../resources/fondo.png') ;
+}
+
+.login-container{
+    background-color: #47b63a;
+}
+
+.p-10{
+    padding: 3rem;   
+}

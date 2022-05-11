@@ -17,58 +17,40 @@ import "./styles.css";
 const Header = () => {
   return (
     <>
-      <Navbar className="personalizedNavbar" expand="lg">
+      <Navbar className="personalizedNavbar m-0 p-0" expand="lg">
         <Container fluid>
-          <Navbar.Brand href="#">
-            <Image className="logo" src={Logo} />
+
+          <Navbar.Brand href="/" className="m-0 emenuLogo">
+            <Image className="logo m-0" src={Logo} />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
-              className="me-auto my-2 my-lg-0"
+              className="me-auto "
               style={{ maxHeight: "100px"}}
               navbarScroll
             >
-              <Nav.Link className="navbarColor" href="#action1">
+              <Nav.Link className="navbarColor" href="/">
                 Inicio
               </Nav.Link>
               <Nav.Link className="navbarColor" href="#action1">
                 Sobre Nosotros
               </Nav.Link>
 
-              <NavDropdown
-                className="navbarColor"
-                title="Menú"
-                id="navbarScrollingDropdown"
-              >
-                
-                <NavDropdown.Item href="#action3">
-                  Comidas Calientes
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-
-                <NavDropdown.Item href="#action4">
-                  Comidas Frias
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-
-                <NavDropdown.Item href="#action5">Postres</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action6">Bebidas</NavDropdown.Item>
-              </NavDropdown>
+             
             </Nav>
-            <Form className="d-flex">
-              <FormControl
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-              />
-              <Button variant="outline-success">
+            
+               <Nav>
+               <Nav.Link className="navbarColor nav_login me-3" href="/login">
+                Login
+              </Nav.Link>
+              <Button variant="outline-success" className="me-2">
                 {" "}
                 <FontAwesomeIcon icon={faCartShopping} />{" "}
               </Button>
-            </Form>
+                 </Nav>   
+             
+          
           </Navbar.Collapse>
         </Container>
       </Navbar>

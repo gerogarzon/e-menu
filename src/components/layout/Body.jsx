@@ -29,8 +29,8 @@ setItems (filteredItems);
   
   return (
     <>
-      <Container fluid className="menus-container">
         <Image fluid src={Banner} className="banner-img" />
+      <Container fluid className="menus-container">
         <Container>
           <br />
           <Categories filterByCategory={filterByCategory} />
