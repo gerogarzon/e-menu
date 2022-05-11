@@ -95,9 +95,9 @@
      width: 30px;
  }
  .item-image{
-    /*   */
-    width: 100%;
-    border-radius: 13px;
+    border-radius: 12px;
+       height: 200px;
+    object-fit: cover;
  }
  .category-item{
      margin-top: 2px;
@@ -140,9 +140,10 @@
 
  }
  .img-category{
-     width: 85px !important;
-     padding-right: 4px;
-     border-radius: 13px;
+    width: 60px !important;
+    padding-right: 4px;
+    margin: 2px;
+    
      
  }
 

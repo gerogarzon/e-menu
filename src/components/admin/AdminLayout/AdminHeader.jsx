@@ -7,7 +7,7 @@ const AdminHeader = () => {
     <>
       <Navbar expand="lg" variant="light" bg="light">
         <Container fluid>
-          <Navbar.Brand href="#">
+          <Navbar.Brand href="/">
             {" "}
             <Image className="logo" src={Logo} />
           </Navbar.Brand>

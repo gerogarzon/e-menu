@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import axiosInstance from "../../util/axiosInstance";
 import "../../admin/AdminStyles.css";
 
-const ProductsAdd = () => {
+const UsersAdd = () => {
   // modal from react boostrap
 
   const [show, setShow] = useState(false);
@@ -22,10 +22,11 @@ const ProductsAdd = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axiosInstance.post("/menu/", data);
+      const response = await axiosInstance.post("/user/", data);
       Swal.fire({
         position: "center",
         icon: "success",
+        title: "Success",
         showConfirmButton: true,
         timer: 2000,
       });
@@ -35,7 +36,7 @@ const ProductsAdd = () => {
       console.log(error);
     }
 
-  
+   
   };
   console.log(errors);
 
@@ -51,7 +52,7 @@ const ProductsAdd = () => {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Add Menú</Modal.Title>
+          <Modal.Title>Add User</Modal.Title>
         </Modal.Header>
         <Modal.Body>
 
@@ -62,63 +63,46 @@ const ProductsAdd = () => {
           <Form onSubmit={handleSubmit(onSubmit)}>
 
             <Form.Group className="mb-3">
-              <Form.Label>Title</Form.Label>
+              <Form.Label>Full Name</Form.Label>
               <Form.Control
                 type="text"
-                name="title"
-                placeholder="Enter Name"
-                {...register("title", { required: true, maxLength: 100 })}
+                name="fullname"
+                placeholder="Enter fullname"
+                {...register("fullname", { required: true, maxLength: 100 })}
               />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Description</Form.Label>
+              <Form.Label>Email</Form.Label>
               <Form.Control
-                type="text"
-                name="description"
-                placeholder="Enter Description"
-                {...register("description", { required: true })}
+                type="email"
+                name="email"
+                placeholder="Enter Email"
+                {...register("email", { required: true })}
               />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label htmlFor="disabledSelect">Category</Form.Label>
+              <Form.Label htmlFor="disabledSelect">Password</Form.Label>
+              <Form.Control
+                type="password"
+                name="password"
+                placeholder="Enter password"
+                {...register("password", { required: true })}
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label>Role</Form.Label>
               <Form.Select
                type="text"
-               name="category"
-               placeholder="Enter Description"
-               {...register("category", { required: true })}
+               name="role"
+               placeholder="Enter Role"
+               {...register("role", { required: true })}
                 id="disabledSelect" >
-                <option>Comidas Calientes</option>
-                <option>Comidas Frias</option>
-                <option>Postres</option>
-                <option>Bebidas</option>
+                <option>ADMIN_ROLE</option>
+                <option>CLIENT_ROLE</option>
               </Form.Select>
-            </Form.Group>
-
-            <Form.Group className="mb-3">
-              <Form.Label>Price</Form.Label>
-              <Form.Control
-                type="number"
-                name="price"
-                placeholder="Enter Price"
-                {...register("price", {
-                  required: true,
-                  max: 100000,
-                  min: 0,
-                  valueAsNumber: true,
-                })}
-              />
-            </Form.Group>
-
-            <Form.Group className="mb-3">
-              <Form.Label>Picture</Form.Label>
-              <Form.Control
-                type="text"
-                name="picture"
-                placeholder="Add URL picture"
-                {...register("picture", { required: true })}
-              />
             </Form.Group>
 
             <Button variant="secondary" type="submit">
@@ -131,4 +115,4 @@ const ProductsAdd = () => {
   );
 };
 
-export default ProductsAdd;
+export default UsersAdd;

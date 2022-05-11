@@ -8,6 +8,7 @@ import { Login } from "./pages/Login/Login";
 import "antd/dist/antd.css";
 import { Register } from "./pages/Register/Register";
 import ProductsClick from "./components/admin/Products/ProductsClick";
+import SobreNosotros from "./pages/SobreNosotros/SobreNosotros";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/adminUsers" element={<UsersClick />} />
           <Route path="/adminProducts" element={<ProductsClick />} />
-          
+          <Route path="/sobreNosotros" element={<SobreNosotros />} />
         </Routes>
       </BrowserRouter>
     </>

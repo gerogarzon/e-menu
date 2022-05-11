@@ -24,10 +24,10 @@ const Footer = () => {
           </div>
           <ul className="list-inline">
             <li className="list-inline-item">
-              <a href="#">Inico</a>
+              <a href="/">Inico</a>
             </li>
             <li className="list-inline-item">
-              <a href="#">Sobre nosotros</a>
+              <a href="/sobreNosotros">Sobre nosotros</a>
             </li>
             <li className="list-inline-item">
               <a href="#">Privacy Policy</a> 

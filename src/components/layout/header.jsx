@@ -29,7 +29,7 @@ const Header = () => {
               <Nav.Link className="navbarColor" href="/">
                 Inicio
               </Nav.Link>
-              <Nav.Link className="navbarColor" href="#action1">
+              <Nav.Link className="navbarColor" href="/sobreNosotros">
                 Sobre Nosotros
               </Nav.Link>
             </Nav>

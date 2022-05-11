@@ -4,14 +4,48 @@ import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { useState, useEffect } from "react";
 import "../../admin/AdminStyles.css";
 import { Row, Col } from "react-bootstrap";
+import axiosInstance from "../../util/axiosInstance"
+import Swal from 'sweetalert2'
+
 
 const UsersList = () => {
     
   const [users, setUsers] = useState([]);
+
+  const getUser = async () => {
+    const response = await fetch("http://localhost:3100/api/users")
+    .then((response) => response.json())
+    .then((data) => setUsers(data.usuariosDB));
+   }
+
+   const deleteUser =  (_id) => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then(async(result) => {
+      if (result.isConfirmed) {
+        const response = await axiosInstance.delete(`/user/${_id}`);
+        getUser();
+
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
+    })
+    
+  };
+
+
   useEffect(() => {
-    fetch("http://localhost:3100/api/users")
-      .then((response) => response.json())
-      .then((data) => setUsers(data.usersDB));
+    getUser();
+
   }, []);
 
 console.log(users)
@@ -29,9 +63,7 @@ console.log(users)
         <Col className="productListTitles">
           <b>Email</b>
         </Col>
-        <Col className="productListTitles">
-          <b>Status</b>
-        </Col>
+        
         <Col className="productListTitles">
           <b>Role</b>
         </Col>
@@ -54,11 +86,7 @@ console.log(users)
                 </List.Item>
               </Col>
 
-              <Col >
-                <List.Item className="ProductListItem" >
-                  {userItem.status}
-                </List.Item>
-              </Col>
+           
 
               <Col >
                 <List.Item className="ProductListItem" >
@@ -67,7 +95,7 @@ console.log(users)
               </Col>
 
               <Col >
-                <Button className="m-2" type="danger" >
+                <Button className="m-2" type="danger"  onClick={() => deleteUser(userItem._id)}>
                   <DeleteOutlined />
                 </Button>
                 <Button type="secondary" >
