@@ -23,14 +23,9 @@ const Body = () => {
 
 const filterByCategory = (category) => {
 
-const filteredItems = origin.filter(elemento => { 
-  if(elemento.category === category) return true;
-
-  console.log(elemento);
-})
-console.log(filteredItems);
-console.log(category);
+const filteredItems = origin.filter(elemento => {if(elemento.category === category) return true});
 setItems (filteredItems);
+
   }
   
   return (

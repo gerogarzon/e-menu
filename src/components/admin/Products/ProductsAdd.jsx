@@ -26,9 +26,8 @@ const ProductsAdd = () => {
       Swal.fire({
         position: "center",
         icon: "success",
-
-        showConfirmButton: false,
-        timer: 2500,
+        showConfirmButton: true,
+        timer: 2000,
       });
       setShow(false);
       window.location.reload();
@@ -63,8 +62,13 @@ const ProductsAdd = () => {
           <Modal.Title>Add Menú</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+
+
           {/* adding form from reactbootstrap */}
+
+
           <Form onSubmit={handleSubmit(onSubmit)}>
+
             <Form.Group className="mb-3">
               <Form.Label>Title</Form.Label>
               <Form.Control
@@ -84,10 +88,15 @@ const ProductsAdd = () => {
                 {...register("description", { required: true })}
               />
             </Form.Group>
-            
+
             <Form.Group className="mb-3">
               <Form.Label htmlFor="disabledSelect">Category</Form.Label>
-              <Form.Select id="disabledSelect">
+              <Form.Select
+               type="text"
+               name="category"
+               placeholder="Enter Description"
+               {...register("category", { required: true })}
+                id="disabledSelect" >
                 <option>Comidas Calientes</option>
                 <option>Comidas Frias</option>
                 <option>Postres</option>

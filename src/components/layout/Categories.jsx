@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Card, Container, Row, Col, Image } from "react-bootstrap";
-import Cookie from "../../resources/icons/galletas.png"
+
 
 
 const Categories = ({filterByCategory}) => {
+  
   const [category, setCategory] = useState([]);
 
   useEffect(() => {
