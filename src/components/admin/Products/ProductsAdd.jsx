@@ -1,54 +1,64 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import axiosInstance from "../../util/axiosInstance";
 import "../../admin/AdminStyles.css";
 
-const ProductsAdd = ({getProduct}) => {
+const ProductsAdd = () => {
   // modal from react boostrap
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-
+  const [form, setForm] = useState(null);
   // Form from react hookform
-
+  
   const {
     register,
     reset,
     handleSubmit,
     formState: { errors },
   } = useForm();
+  
 
-  const [form, setForm] = useState(null);
+  useEffect(() => {
+    setForm("");
+  }, []);
+  useEffect(() => {
+    reset(form);
+  });
+  
 
-  useEffect(() => {setForm('')},[]);
-  useEffect(() =>{reset(form)})
-
-  const onSubmit = async (data) => {
+  
+  const onSubmit = async (data) => {    
     try {
       const response = await axiosInstance.post("/menu/", data);
       Swal.fire({
-        title: 'Product submitted',
+        title: "Product submitted",
         text: "You just submitted a product",
         position: "center",
         icon: "success",
         showConfirmButton: true,
         timer: 1200,
-        
       });
       setShow(false);
-      getProduct();
-      // window.location.reload();
     } catch (error) {
       console.log(error);
-      
-    } 
+    }
   };
-
-
+  const [categories, setCategories] = useState([]);
+  
+  const getCategories = async () => {
+    await fetch("http://localhost:3100/api/categories")
+      .then((response) => response.json())
+      .then((data) => setCategories(data.categoriesDB));
+     console.log(setCategories)
+  };  
+  
+  useEffect(() => {
+    getCategories();  
+  }, []);
 
 
   return (
@@ -66,13 +76,12 @@ const ProductsAdd = ({getProduct}) => {
           <Modal.Title>Add Menú</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-
-
           {/* adding form from reactbootstrap */}
 
-
-          <Form onSubmit={handleSubmit(onSubmit)} onChange={event => setShow(event.target.value)}>
-
+          <Form
+            onSubmit={handleSubmit(onSubmit)}
+            onChange={(event) => setShow(event.target.value)}
+          >
             <Form.Group className="mb-3">
               <Form.Label>Title</Form.Label>
               <Form.Control
@@ -89,22 +98,26 @@ const ProductsAdd = ({getProduct}) => {
                 type="text"
                 name="description"
                 placeholder="Enter Description"
-                {...register("description", { required: true,maxLength: 100 })}
+                {...register("description", { required: true, maxLength: 100 })}
               />
             </Form.Group>
 
             <Form.Group className="mb-3">
               <Form.Label htmlFor="disabledSelect">Category</Form.Label>
               <Form.Select
-               type="text"
-               name="category"
-               placeholder="Enter Description"
-               {...register("category", { required: true, })}
-                id="disabledSelect" >
-                <option>Comidas Calientes</option>
-                <option>Comidas Frias</option>
-                <option>Postres</option>
-                <option>Bebidas</option>
+                type="text"
+                name="category"
+                placeholder="Select Category"
+                {...register("category", { required: true })}
+                id="disabledSelect"
+              >
+              {categories?.map((category) =>{ return (
+                <>  
+              <option>{category.name}</option>                          
+              </>  
+                )              
+              })}
+
               </Form.Select>
             </Form.Group>
 
