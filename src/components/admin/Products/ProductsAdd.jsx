@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Modal, Button, Col, Form } from "react-bootstrap";
+import React, { useState, useEffect} from "react";
+import { Modal, Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import axiosInstance from "../../util/axiosInstance";
@@ -12,19 +12,20 @@ const ProductsAdd = ({getProduct}) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  // Store the values of the input fields in state variables
-
-  // const [input, setInput] = useState([]);
-
-
 
   // Form from react hookform
 
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const [form, setForm] = useState(null);
+
+  useEffect(() => {setForm('')},[]);
+  useEffect(() =>{reset(form)})
 
   const onSubmit = async (data) => {
     try {
@@ -43,11 +44,12 @@ const ProductsAdd = ({getProduct}) => {
       // window.location.reload();
     } catch (error) {
       console.log(error);
-    }
-
-  
+      
+    } 
   };
-  console.log(errors);
+
+
+
 
   return (
     <div className="AddButton">
