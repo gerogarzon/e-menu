@@ -22,6 +22,7 @@ function App() {
           <Route path="/adminUsers" element={<UsersClick />} />
           <Route path="/adminProducts" element={<ProductsClick />} />
           <Route path="/sobreNosotros" element={<SobreNosotros />} />
+          
         </Routes>
       </BrowserRouter>
     </>

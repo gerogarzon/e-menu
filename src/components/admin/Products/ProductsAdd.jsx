@@ -5,12 +5,18 @@ import Swal from "sweetalert2";
 import axiosInstance from "../../util/axiosInstance";
 import "../../admin/AdminStyles.css";
 
-const ProductsAdd = () => {
+const ProductsAdd = ({getProduct}) => {
   // modal from react boostrap
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  // Store the values of the input fields in state variables
+
+  // const [input, setInput] = useState([]);
+
+
 
   // Form from react hookform
 
@@ -24,13 +30,17 @@ const ProductsAdd = () => {
     try {
       const response = await axiosInstance.post("/menu/", data);
       Swal.fire({
+        title: 'Product submitted',
+        text: "You just submitted a product",
         position: "center",
         icon: "success",
         showConfirmButton: true,
-        timer: 2000,
+        timer: 1200,
+        
       });
       setShow(false);
-      window.location.reload();
+      getProduct();
+      // window.location.reload();
     } catch (error) {
       console.log(error);
     }
@@ -59,7 +69,7 @@ const ProductsAdd = () => {
           {/* adding form from reactbootstrap */}
 
 
-          <Form onSubmit={handleSubmit(onSubmit)}>
+          <Form onSubmit={handleSubmit(onSubmit)} onChange={event => setShow(event.target.value)}>
 
             <Form.Group className="mb-3">
               <Form.Label>Title</Form.Label>

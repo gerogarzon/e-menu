@@ -90,7 +90,7 @@ console.log(users)
 
               <Col >
                 <List.Item className="ProductListItem" >
-                  $ {userItem.role}
+                   {userItem.role}
                 </List.Item>
               </Col>
 
