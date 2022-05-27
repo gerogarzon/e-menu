@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Modal, Button, Col, Form } from "react-bootstrap";
+import React, { useState, useEffect} from "react";
+import { Modal, Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import axiosInstance from "../../util/axiosInstance";
@@ -11,27 +11,36 @@ const UsersAdd = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [form,setForm]= useState(null);
 
   // Form from react hookform
 
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  useEffect(() => {
+    setForm("");
+  }, [])
+  useEffect(() => {
+    reset(form);
+  });
 
   const onSubmit = async (data) => {
     try {
       const response = await axiosInstance.post("/user/", data);
       Swal.fire({
+        title: "User submitted",
+        text: "You just submitted an user",
         position: "center",
         icon: "success",
-        title: "Success",
         showConfirmButton: true,
-        timer: 2000,
+        timer: 1200,
       });
       setShow(false);
-      window.location.reload();
     } catch (error) {
       console.log(error);
     }
@@ -60,7 +69,8 @@ const UsersAdd = () => {
           {/* adding form from reactbootstrap */}
 
 
-          <Form onSubmit={handleSubmit(onSubmit)}>
+          <Form onSubmit={handleSubmit(onSubmit)}
+           onChange={(event) => setShow(event.target.value)}>
 
             <Form.Group className="mb-3">
               <Form.Label>Full Name</Form.Label>

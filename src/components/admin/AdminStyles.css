@@ -35,11 +35,6 @@ margin-top: 10px!important;
 
 /* aside styles */
 
-.asideLinks{
-    padding-left: 30px;
-    colo:black!important;
-
-}
 .ant-menu-light .ant-menu-item-active{
     color:black!important;
     padding: 30px;

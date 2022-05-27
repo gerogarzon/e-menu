@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   ContainerOutlined,
   DesktopOutlined,
@@ -17,22 +18,25 @@ const Aside = () => {
         theme="light"
         //   inlineCollapsed={this.state.collapsed}
       >
-        <a href="http://localhost:3000" className="aLink">
+        <Link to="/">
           <Menu.Item key="1" icon={<HomeOutlined />} className="asideLinks">
             Home
           </Menu.Item>
-        </a>
-        <a href="/adminProducts">
+        </Link>
+
+        <Link to="/adminProducts">
           <Menu.Item key="2" icon={<DesktopOutlined />} className="asideLinks">
             Product list
           </Menu.Item>
-        </a>
-        <a>
+        </Link>
+
+        <Link to="/adminOrders">
           <Menu.Item key="3" icon={<DesktopOutlined />} className="asideLinks">
             Orders List
           </Menu.Item>
-        </a>
-        <a href="/adminUsers">
+        </Link>
+
+        <Link to="/adminUsers">
           <Menu.Item
             key="4"
             icon={<ContainerOutlined />}
@@ -40,7 +44,7 @@ const Aside = () => {
           >
             Users
           </Menu.Item>
-        </a>
+        </Link>
       </Menu>
     </>
   );

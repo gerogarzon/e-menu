@@ -18,6 +18,7 @@ const ProductsAdd = () => {
     register,
     reset,
     handleSubmit,
+    setError,
     formState: { errors },
   } = useForm();
   

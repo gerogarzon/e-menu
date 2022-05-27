@@ -32,10 +32,14 @@ const UsersList = () => {
         const response = await axiosInstance.delete(`/user/${_id}`);
         getUser();
 
-        Swal.fire(
-          'Deleted!',
-          'Your file has been deleted.',
-          'success'
+        Swal.fire({
+          title: "Deleted!", 
+          text: "Your file has been deleted.", 
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 1500,  
+        }
+           
         )
       }
     })
@@ -46,7 +50,7 @@ const UsersList = () => {
   useEffect(() => {
     getUser();
 
-  }, []);
+  }, [users]);
 
 console.log(users)
 
