@@ -6,6 +6,7 @@ import "../../admin/AdminStyles.css";
 import Swal from "sweetalert2";
 import axiosInstance from "../../util/axiosInstance";
 import { Row, Col } from "react-bootstrap";
+import ProductsAddEditButton from "./ProductsAddEditButton";
 
 const ProductsList = () => {
   const [items, setItems] = useState([]);
@@ -29,24 +30,22 @@ const ProductsList = () => {
       if (result.isConfirmed) {
         const response = await axiosInstance.delete(`/menu/${_id}`);
         getProduct();
-      Swal.fire({
-        title: "Deleted!", 
-        text: "Your file has been deleted.", 
-        icon: 'success',
-        showConfirmButton: false,
-        timer: 1500,   
-      })
-    }});
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
   };
 
- const editProduct = (_id) => {
-   
-
- }
+  const editProduct = (_id) => {};
 
   useEffect(() => {
     getProduct();
-  },[items]);
+  }, [items]);
 
   return (
     <>
@@ -96,20 +95,21 @@ const ProductsList = () => {
                   $ {item.price}
                 </List.Item>
               </Col>
-
               <Col>
-                <Button
-                  className="m-2"
-                  type="danger"
-                  onClick={() => deleteProduct(item._id)}
-                >
-                  <DeleteOutlined />
-                </Button>
-                <Button type="secondary"
-                 onClick={() => editProduct(item._id)}
-                >
-                  <EditOutlined />
-                </Button>
+                <Row>
+                  <Col>
+                    <Button
+                      className="m-2"
+                      type="danger"
+                      onClick={() => deleteProduct(item._id)}
+                    >
+                      <DeleteOutlined />
+                    </Button>
+                  </Col>
+                  <Col>
+                    <ProductsAddEditButton />
+                  </Col>
+                </Row>
               </Col>
 
               <Divider orientation="left"></Divider>

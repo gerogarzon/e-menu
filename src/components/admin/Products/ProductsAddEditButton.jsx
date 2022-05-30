@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import axiosInstance from "../../util/axiosInstance";
 import "../../admin/AdminStyles.css";
+import { EditOutlined } from "@ant-design/icons";
 
 const ProductsAdd = () => {
   // modal from react boostrap
@@ -34,8 +35,8 @@ const ProductsAdd = () => {
     try {
     const response =   await axiosInstance.post("/menu/", data);
       Swal.fire({
-        title: "Product submitted",
-        text: "You just submitted a product",
+        title: "Edit Product",
+        text: "You just edited a product",
         position: "center",
         icon: "success",
         showConfirmButton: true,
@@ -61,18 +62,18 @@ const ProductsAdd = () => {
 
 
   return (
-    <div className="AddButton">
+    <div className="EditButton">
       <Button
         className="AddButtonStyle"
         variant="secondary"
         onClick={handleShow}
       >
-        +Add
+        <EditOutlined/>
       </Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Add Menú</Modal.Title>
+          <Modal.Title>Edit Product</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {/* adding form from reactbootstrap */}
@@ -112,7 +113,7 @@ const ProductsAdd = () => {
               >
               {categories?.map((category) =>{ return (
                 <>  
-              <option>{category.name}</option>                          
+              <option key={category._id}>{category.name}</option>                          
               </>  
                 )              
               })}
