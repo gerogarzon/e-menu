@@ -47,7 +47,7 @@ setItems (filteredItems);
                     style={{ width: "auto" }}
                     className="card-items text-dark "
                   >
-                    <Image fluid src={item.picture} className="item-image" />
+                    <Image fluid src={item.picture} className="item-image" alt={item.title} />
                     <p className="category-item">{item.category}</p>
                     <Card.Title className="item-name">{item.title}</Card.Title>
                     <p className="text-dark item-text">{item.description}</p>

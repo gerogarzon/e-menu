@@ -34,7 +34,7 @@ const ProductsAdd = () => {
   
   const onSubmit = async (data) => {    
     try {
-      const response = await axiosInstance.post("/menu/", data);
+    const response =   await axiosInstance.post("/menu/", data);
       Swal.fire({
         title: "Product submitted",
         text: "You just submitted a product",
@@ -51,7 +51,7 @@ const ProductsAdd = () => {
   const [categories, setCategories] = useState([]);
   
   const getCategories = async () => {
-    await fetch("http://localhost:3100/api/categories")
+   const response =  await fetch("http://localhost:3100/api/categories")
       .then((response) => response.json())
       .then((data) => setCategories(data.categoriesDB));
      console.log(setCategories)
@@ -114,7 +114,7 @@ const ProductsAdd = () => {
               >
               {categories?.map((category) =>{ return (
                 <>  
-              <option>{category.name}</option>                          
+              <option key={category.id}>{category.name}</option>                          
               </>  
                 )              
               })}
