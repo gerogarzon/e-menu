@@ -33,7 +33,7 @@ const ProductsAdd = () => {
   
   const onSubmit = async (data) => {    
     try {
-    const response =   await axiosInstance.post("/menu/", data);
+    const response =   await axiosInstance.put("/user/:_id", data);
       Swal.fire({
         title: "Edit Product",
         text: "You just edited a product",

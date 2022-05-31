@@ -33,7 +33,9 @@ margin-right:100px!important;
 margin-top: 10px!important;
 }
 .EditButton {
-    margin-left:1px;
+    margin-right: 0px;
+    padding: 0px;
+
 }
 
 /* aside styles */
