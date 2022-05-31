@@ -1,6 +1,6 @@
 import React from "react";
 import { List, Divider, Button } from "antd";
-import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
+import { DeleteOutlined} from "@ant-design/icons";
 import { useState, useEffect } from "react";
 import "../../admin/AdminStyles.css";
 import Swal from "sweetalert2";
@@ -41,7 +41,7 @@ const ProductsList = () => {
     });
   };
 
-  const editProduct = (_id) => {};
+  
 
   useEffect(() => {
     getProduct();

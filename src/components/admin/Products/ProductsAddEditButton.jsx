@@ -6,7 +6,7 @@ import axiosInstance from "../../util/axiosInstance";
 import "../../admin/AdminStyles.css";
 import { EditOutlined } from "@ant-design/icons";
 
-const ProductsAdd = () => {
+const ProductsAddEditButton = (_id) => {
   // modal from react boostrap
 
   const [show, setShow] = useState(false);
@@ -29,11 +29,15 @@ const ProductsAdd = () => {
     reset(form);
   });
   
+  // const abrir = ()=>{
+  //   handleShow();
+  //   console.log(_id);
+  // }
 
   
   const onSubmit = async (data) => {    
     try {
-    const response =   await axiosInstance.put("/user/:_id", data);
+    const response =   await axiosInstance.put(`/menu/${_id}`, data);
       Swal.fire({
         title: "Edit Product",
         text: "You just edited a product",
@@ -44,7 +48,7 @@ const ProductsAdd = () => {
       });
       setShow(false);
     } catch (error) {
-      console.log(error);
+      // console.log("edit button put",error);
     }
   };
   const [categories, setCategories] = useState([]);
@@ -53,7 +57,7 @@ const ProductsAdd = () => {
    const response =  await fetch("http://localhost:3100/api/categories")
       .then((response) => response.json())
       .then((data) => setCategories(data.categoriesDB));
-     console.log(setCategories)
+    //  console.log("edit button get categories", setCategories)
   };  
   
   useEffect(() => {
@@ -156,4 +160,4 @@ const ProductsAdd = () => {
   );
 };
 
-export default ProductsAdd;
+export default ProductsAddEditButton;

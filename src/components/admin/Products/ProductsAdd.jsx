@@ -44,6 +44,7 @@ const ProductsAdd = () => {
       setShow(false);
     } catch (error) {
       console.log(error);
+      // console.log("products add post",error);
     }
   };
   const [categories, setCategories] = useState([]);
@@ -52,7 +53,7 @@ const ProductsAdd = () => {
    const response =  await fetch("http://localhost:3100/api/categories")
       .then((response) => response.json())
       .then((data) => setCategories(data.categoriesDB));
-     console.log(setCategories)
+    //  console.log("add button get categories",setCategories)
   };  
   
   useEffect(() => {
