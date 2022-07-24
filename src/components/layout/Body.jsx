@@ -6,33 +6,32 @@ import Categories from "./Categories";
 import "./styles.css";
 
 const Body = () => {
-  const [items, setItems] = useState([]); 
+  const [items, setItems] = useState([]);
   const [origin, setOrigin] = useState([]);
-
 
   useEffect(() => {
     fetch("http://localhost:3100/api/menus")
       .then((response) => response.json())
       .then((data) => {
-        setItems(data.menusDB)
-        setOrigin(data.menusDB)
-    }        
-     );
+        setItems(data.menusDB);
+        setOrigin(data.menusDB);
+      });
   }, []);
 
-const filterByCategory = (category) => {
+  const filterByCategory = (category) => {
+    const filteredItems = origin.filter((elemento) => {
+      if (elemento.category === category) return true;
+    });
+    setItems(filteredItems);
+  };
 
-const filteredItems = origin.filter(elemento => {if(elemento.category === category) return true} );
-setItems (filteredItems);
-
-  }
-  
   return (
     <>
-        <Image fluid src={Banner} className="banner-img" />
+      <Image fluid src={Banner} className="banner-img" />
       <Container fluid className="menus-container">
         <Container>
           <br />
+          <h2 className="text-center body-menu"> Nuestras secciones: </h2>
           <Categories filterByCategory={filterByCategory} />
           <br />
           <h2 className="text-center body-menu"> Nuestro menú: </h2>
@@ -47,7 +46,12 @@ setItems (filteredItems);
                     style={{ width: "auto" }}
                     className="card-items text-dark "
                   >
-                    <Image fluid src={item.picture} className="item-image" alt={item.title} />
+                    <Image
+                      fluid
+                      src={item.picture}
+                      className="item-image"
+                      alt={item.title}
+                    />
                     <p className="category-item">{item.category}</p>
                     <Card.Title className="item-name">{item.title}</Card.Title>
                     <p className="text-dark item-text">{item.description}</p>

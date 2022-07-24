@@ -1,20 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { List, Divider, Button } from "antd";
-import { DeleteOutlined} from "@ant-design/icons";
-import { useState, useEffect } from "react";
+import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
+import { useForm } from "react-hook-form";
 import "../../admin/AdminStyles.css";
 import Swal from "sweetalert2";
 import axiosInstance from "../../util/axiosInstance";
-import { Row, Col } from "react-bootstrap";
+import { Modal, Form, Row, Col } from "react-bootstrap";
+
 import ProductsAddEditButton from "./ProductsAddEditButton";
 
 const ProductsList = () => {
   const [items, setItems] = useState([]);
 
   const getProduct = async () => {
-    const response = await fetch("http://localhost:3100/api/menus")
+     await fetch("http://localhost:3100/api/menus")
       .then((response) => response.json())
       .then((data) => setItems(data.menusDB));
+      // console.log('aca',items);
   };
 
   const deleteProduct = (_id) => {
@@ -28,7 +30,7 @@ const ProductsList = () => {
       confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        const response = await axiosInstance.delete(`/menu/${_id}`);
+        await axiosInstance.delete(`/menu/${_id}`);
         getProduct();
         Swal.fire({
           title: "Deleted!",
@@ -40,8 +42,6 @@ const ProductsList = () => {
       }
     });
   };
-
-  
 
   useEffect(() => {
     getProduct();
@@ -70,10 +70,10 @@ const ProductsList = () => {
         </Col>
       </Row>
       <Divider orientation="left"></Divider>
-      {items?.map((item) => {
+      {items?.map((item, key) => {
         return (
           <>
-            <Row key={item._id}>
+            <Row key={key}>
               <Col>
                 <List.Item className="ProductListItem">{item.title}</List.Item>
               </Col>
@@ -107,7 +107,14 @@ const ProductsList = () => {
                     </Button>
                   </Col>
                   <Col>
-                    <ProductsAddEditButton />
+                    {/* <ProductsAddEditButton /> */}
+                    {/* <Button
+                      className="m-2"
+                      type="secondary"
+                      onClick={() => editProduct(item._id)}
+                    >
+                      <EditOutlined />
+                    </Button> */}
                   </Col>
                 </Row>
               </Col>

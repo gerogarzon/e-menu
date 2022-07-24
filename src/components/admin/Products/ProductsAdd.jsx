@@ -13,13 +13,8 @@ const ProductsAdd = () => {
   const handleShow = () => setShow(true);
   const [form, setForm] = useState(null);
   // Form from react hookform
-  
-  const {
-    register,
-    reset,
-    handleSubmit,
-  } = useForm();
-  
+
+  const { register, reset, handleSubmit } = useForm();
 
   useEffect(() => {
     setForm("");
@@ -27,12 +22,10 @@ const ProductsAdd = () => {
   useEffect(() => {
     reset(form);
   });
-  
 
-  
-  const onSubmit = async (data) => {    
+  const onSubmit = async (data) => {
     try {
-    const response =   await axiosInstance.post("/menu/", data);
+      await axiosInstance.post("/menu/", data);
       Swal.fire({
         title: "Product submitted",
         text: "You just submitted a product",
@@ -43,23 +36,21 @@ const ProductsAdd = () => {
       });
       setShow(false);
     } catch (error) {
-      console.log(error);
-      // console.log("products add post",error);
+      console.log("post error:", error);
     }
   };
   const [categories, setCategories] = useState([]);
-  
+
   const getCategories = async () => {
-   const response =  await fetch("http://localhost:3100/api/categories")
+    await fetch("http://localhost:3100/api/categories")
       .then((response) => response.json())
       .then((data) => setCategories(data.categoriesDB));
     //  console.log("add button get categories",setCategories)
-  };  
-  
-  useEffect(() => {
-    getCategories();  
-  }, []);
+  };
 
+  useEffect(() => {
+    getCategories();
+  }, []);
 
   return (
     <div className="AddButton">
@@ -111,13 +102,13 @@ const ProductsAdd = () => {
                 {...register("category", { required: true })}
                 id="disabledSelect"
               >
-              {categories?.map((category) =>{ return (
-                <>  
-              <option>{category.name}</option>                          
-              </>  
-                )              
-              })}
-
+                {categories?.map((category, key) => {
+                  return (
+                    <>
+                      <option key={key}>{category.name}</option>
+                    </>
+                  );
+                })}
               </Form.Select>
             </Form.Group>
 
