@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 /* Creamos el context, se le puede pasar un valor inicial */
 const CartContext = createContext();
@@ -29,7 +30,12 @@ export const CartProvider = ({ children }) => {
       title,
       picture,
       price,
-    });  
+    }).then(Swal.fire({
+      title: "Agregado!",
+      icon: "success",
+      showConfirmButton: false,
+      timer: 600,}
+    ));  
     getProductsCart();
   };
 

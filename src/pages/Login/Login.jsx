@@ -53,7 +53,7 @@ export const Login = () => {
   return (
     <>
       <Header />
-      <Container fluid>
+      <Container className="loginContainer" fluid>
         <Row>
           <Col className=" welcome-text d-flex" md={8}>
             <Container className="justify-content-center d-flex align-items-center container-sm">
@@ -86,7 +86,7 @@ export const Login = () => {
                   <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group>
                 <Button
-                  variant="primary"
+                  variant="secondary"
                   className="mb-2"
                   type="submit"
                 >
@@ -95,8 +95,7 @@ export const Login = () => {
                 <ModalRegister />
               </Form>
             </Container>
-          </Col>
-        
+          </Col>        
         </Row>
       </Container>
       <Footer />

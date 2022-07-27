@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useContext} from "react";
-import { Card, Container, Row, Col, Image } from "react-bootstrap";
+import { Card, Container, Row, Col, Image, Button } from "react-bootstrap";
 import Banner from "../../resources/Banner.jpg";
 import Categories from "./Categories";
 import "./styles.css";
 import CartContext from "../../context/CartContext";
-import Cart from"../../cart/cartBody/cartBody";
 
 const Body = () => {
   const [items, setItems] = useState([]);
@@ -28,19 +27,18 @@ const Body = () => {
     setItems(filteredItems);
   };
 
+  const notFilter = ()=> {
+    setItems(origin);
+  };
+
   return (
-    <>
-   
-     
-      <Image fluid src={Banner} className="banner-img" />
-      
+    <>    
+      <Image fluid src={Banner} className="banner-img" />      
       <Container fluid className="menus-container">
-      
-        <Cart/>
         <Container>
           <br />
           <h2 className="text-center body-menu"> Nuestras secciones: </h2>
-          <Categories filterByCategory={filterByCategory} />
+          <Categories notFilter={notFilter} filterByCategory={filterByCategory} />
           <br />
           <h2 className="text-center body-menu"> Nuestro menú: </h2>
           <br></br>
@@ -64,7 +62,7 @@ const Body = () => {
                     <Card.Title className="item-name">{item.title}</Card.Title>
                     <p className="text-dark item-text">{item.description}</p>
                     <p className="text-dark">${item.price}</p>
-                    <button className="cardButton" onClick={() => addItemToCart(item)} >Agregar</button>
+                    <Button className="cardButton" onClick={() => addItemToCart(item)}>Agregar</Button>
                     
                   </Card>
                   <br />

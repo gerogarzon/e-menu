@@ -17,14 +17,14 @@ export const ItemCart = ({ item }) => {
           <p>{item.title}</p>
           <div className="buttons">
             <button onClick={() => editItemToCart(item._id, "add", amount)}>
-              AGREGAR
+              +
             </button>
             <button onClick={() => editItemToCart(item._id, "del", amount)}>
-              SACAR
+              -
             </button>
           </div>
         </div>
-        <div className="right">
+        <div className="left">
           <div>{item.amount}</div>
           <p>Total: ${item.amount * item.price}</p>
         </div>

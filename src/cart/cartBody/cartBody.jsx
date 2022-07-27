@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { ItemCart } from "../cartItems/cartItems";
 import CartContext from "../../context/CartContext";
+import {Container} from 'react-bootstrap'
 import "./cartBodyStyles.scss";
 
 const Cart = () => {
@@ -26,6 +27,7 @@ const Cart = () => {
   );
 
   return (
+    <Container fluid className="cart-contenedor">
     <div className="cartContainer">
       <div
         onClick={() => setCartOpen(!cartOpen)}
@@ -92,6 +94,7 @@ const Cart = () => {
         </div>
       )}
     </div>
+    </Container>
   );
 };
 

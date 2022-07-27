@@ -11,3 +11,8 @@
 .p-10{
     padding: 3rem;   
 }
+.loginContainer{
+justify-content:space-around;
+   height:100%;
+   width:100%;
+}
