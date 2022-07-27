@@ -10,9 +10,11 @@ import { Register } from "./pages/Register/Register";
 import Products from "./components/admin/Products/Products";
 import SobreNosotros from "./pages/SobreNosotros/SobreNosotros";
 import Orders from './components/admin/Orders/Orders'
+import {CartProvider} from './context/CartContext'
 function App() {
   return (
     <>
+    <CartProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main />} />
@@ -25,6 +27,8 @@ function App() {
           <Route path="/sobreNosotros" element={<SobreNosotros />} />          
         </Routes>
       </BrowserRouter>
+      </CartProvider>
+      
     </>
   );
 }

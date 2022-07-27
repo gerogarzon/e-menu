@@ -5,58 +5,53 @@ import axios from "axios";
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
+
   /* Creamos un estado para el carrito */
   const [cartItems, setCartItems] = useState([]);
-  const [products, setProducts] = useState([]);
-
-  const getProducts = async () => {
-    await axios
-      .get("http://localhost:3000/menus")
-      .then(({ data }) => setProducts(data.menusDB));
-  };
 
   const getProductsCart = async () => {
+
     return await axios
-      .get("http://localhost:3000/menusCart")
+      .get("http://localhost:3100/api/menusCart")
       .then(({ data }) => setCartItems(data.menusCart))
       .catch((error) => console.error(error));
+     
   };
 
-  useEffect(() => {
-    getProducts();
+  useEffect(() => {  
     getProductsCart();
   }, []);
 
   const addItemToCart = async (product) => {
     const { title, picture, price } = product;
-
-    await axios.post("http://localhost:3000/menusCart", { title, picture, price });
-
-    getProducts();
+    console.log("add:", product);
+    await axios.post("http://localhost:3100/api/menusCart", {
+      title,
+      picture,
+      price,
+    });  
     getProductsCart();
   };
 
-  const editItemToCart = async (id, query, amount) => {
+  const editItemToCart = async (menuId, query, amount) => {
     if (query === "del" && amount === 1) {
       await axios
-        .delete(`http://localhost:3000/menusCart/${id}`)
+        .delete(`http://localhost:3100/api/menusCart/${menuId}`)
         .then(({ data }) => console.log(data));
     } else {
       await axios
-        .put(`http://localhost:3000/menusCart/${id}?query=${query}`, {
+        .put(`http://localhost:3100/api/menusCart/${menuId}?query=${query}`, {
           amount,
         })
         .then(({ data }) => console.log(data));
-    }
-
-    getProducts();
+    }    
     getProductsCart();
   };
 
   return (
     /* Envolvemos el children con el provider y le pasamos un objeto con las propiedades que necesitamos por value */
     <CartContext.Provider
-      value={{ cartItems, products, addItemToCart, editItemToCart }}
+      value={{ cartItems, addItemToCart, editItemToCart }}
     >
       {children}
     </CartContext.Provider>

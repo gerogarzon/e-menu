@@ -16,7 +16,6 @@ const ProductsList = () => {
      await fetch("http://localhost:3100/api/menus")
       .then((response) => response.json())
       .then((data) => setItems(data.menusDB));
-      // console.log('aca',items);
   };
 
   const deleteProduct = (_id) => {

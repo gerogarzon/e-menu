@@ -1,17 +1,14 @@
-import React from "react";
-import {
-  Navbar,
-  Container,
-  Nav,
-  Button,
-  Image,
-} from "react-bootstrap";
+import React, { useContext } from "react";
+import { Navbar, Container, Nav, Button, Image } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import Logo from "../../resources/logo2.png";
 import "./styles.css";
 
+
 const Header = () => {
+  /* Traemos del context la funcion para agregar un producto */
+
   return (
     <>
       <Navbar className="personalizedNavbar m-0 p-0" expand="lg">
@@ -34,13 +31,10 @@ const Header = () => {
               </Nav.Link>
             </Nav>
             <Nav>
-              <Nav.Link className="navbarColor nav_login me-3" href="/login">
+              <Nav.Link className="navbarColor nav_login me-1" href="/login">
                 Login
               </Nav.Link>
-              <Button variant="outline-success" className="me-2">
-                {" "}
-                <FontAwesomeIcon icon={faCartShopping} />{" "}
-              </Button>
+
             </Nav>
           </Navbar.Collapse>
         </Container>

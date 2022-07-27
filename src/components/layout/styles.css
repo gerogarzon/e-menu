@@ -56,6 +56,15 @@
   box-shadow: 0 0 9px 2px #dddcdc;
   margin: 0;
 }
+.cardButton{
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin: 15px;
+  background-color: #dddcdc;
+  
+}
 
 .body-menu {
   color: #30ad23;
@@ -104,6 +113,8 @@
   margin-right: 8px !important;
 }
 .item-text {
+  max-height: 30px;
+  overflow-y: scroll;
   font-size: 15px;
   margin-left: 9px !important;
   margin-right: 9px !important;

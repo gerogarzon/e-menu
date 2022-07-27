@@ -104,9 +104,9 @@ const ProductsAdd = () => {
               >
                 {categories?.map((category, key) => {
                   return (
-                    <>
-                      <option key={key}>{category.name}</option>
-                    </>
+                    <div key={key}>
+                      <option >{category.name}</option>
+                    </div>
                   );
                 })}
               </Form.Select>

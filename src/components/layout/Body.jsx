@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext} from "react";
 import { Card, Container, Row, Col, Image } from "react-bootstrap";
-import ItemCount from "./ItemCount.jsx";
 import Banner from "../../resources/Banner.jpg";
 import Categories from "./Categories";
 import "./styles.css";
+import CartContext from "../../context/CartContext";
+import Cart from"../../cart/cartBody/cartBody";
 
 const Body = () => {
   const [items, setItems] = useState([]);
   const [origin, setOrigin] = useState([]);
+
+  const { addItemToCart} = useContext(CartContext);
 
   useEffect(() => {
     fetch("http://localhost:3100/api/menus")
@@ -27,8 +30,13 @@ const Body = () => {
 
   return (
     <>
+   
+     
       <Image fluid src={Banner} className="banner-img" />
+      
       <Container fluid className="menus-container">
+      
+        <Cart/>
         <Container>
           <br />
           <h2 className="text-center body-menu"> Nuestras secciones: </h2>
@@ -56,7 +64,8 @@ const Body = () => {
                     <Card.Title className="item-name">{item.title}</Card.Title>
                     <p className="text-dark item-text">{item.description}</p>
                     <p className="text-dark">${item.price}</p>
-                    <ItemCount />
+                    <button className="cardButton" onClick={() => addItemToCart(item)} >Agregar</button>
+                    
                   </Card>
                   <br />
                 </Col>
