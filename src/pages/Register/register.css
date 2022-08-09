@@ -1,0 +1,46 @@
+.register-main-container{
+    background-image: url('../../resources/fondo.png') ;
+    display:flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.register-container{
+    flex-basis: 720px;
+    background-color: #47b63a;
+    border-radius:20px;  
+    margin:0;
+    padding: 20px;   
+}
+.register-form{
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;  
+}
+.register-form-items{
+    width: 60%;
+    font-size: 17px;
+    margin:5px;
+    padding: 7px;
+    flex-grow: 1;
+    color:#fff;
+}
+.register-form-label{
+ margin: auto;
+}
+.form-btn{
+    width:min-content;
+    color:#111;
+    background-color: #ddd;
+    border: none;
+    margin-top: 15px;
+    align-self: center;
+}
+.form-btn:hover{
+    background-color: #777;
+    box-shadow: none;
+    border: none;
+}

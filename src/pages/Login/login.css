@@ -1,18 +1,72 @@
-.welcome-text{
-    color:#47b63a;
-    background-image: url('../../resources/fondo.png') ;
-    object-fit: cover;
+.login-manin-container {
+  background-image: url("../../resources/fondo.png");
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  padding: 20px;
 }
 
-.login-container{
-    background-color: #47b63a;
+.main-left-item {
+  text-align: center;
+  flex-grow: 1;
+  font-size: 35px;
+  margin: auto;
 }
 
-.p-10{
-    padding: 3rem;   
+.main-left-item-content{
+    color: #555;
 }
-.loginContainer{
-justify-content:space-around;
-   height:100%;
-   width:100%;
+.main-right-item {
+  flex-grow: 2;
+  margin: auto;
+  background-color: #47b63a;
+  border-radius: 20px;
 }
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.login-form-items {
+  color: #fff;
+  margin: auto;
+  padding: 10px;
+  flex-grow: 1;
+  width: 60%;
+}
+
+.login-btn-left {
+  width: min-content;
+  color: #111;
+  background-color: #ddd;
+  border: none;
+  margin-right: 10px;
+}
+
+.login-btn-right {
+    width: min-content;
+    color: #000!important;
+    background-color: #fff;
+    border: none;
+    margin-left: 10px;
+}
+.login-btn-right:hover{
+    color:#222;
+    background-color: #ddd;
+    border:none;
+}
+.login-btn-link {
+    width: min-content;
+    color: #000;
+    background-color: #fff;
+}
+.login-btn-link:hover{
+    color:#222;
+    background-color: #ddd;
+    border:none;
+}
+

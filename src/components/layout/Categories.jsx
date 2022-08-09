@@ -44,8 +44,7 @@ const Categories = ({filterByCategory,notFilter}) => {
             );
           })}
            <Col >
-                <Card onClick={()=> notFilter()}
-              
+                <Card onClick={()=> notFilter()}             
                   border="#edeef2"
                   style={{ width: "auto" }}
                   className="card-categories "

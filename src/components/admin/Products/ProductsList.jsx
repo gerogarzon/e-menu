@@ -13,7 +13,7 @@ const ProductsList = () => {
   const [items, setItems] = useState([]);
 
   const getProduct = async () => {
-     await fetch("http://localhost:3100/api/menus")
+    await fetch("http://localhost:3100/api/menus")
       .then((response) => response.json())
       .then((data) => setItems(data.menusDB));
   };
@@ -24,7 +24,7 @@ const ProductsList = () => {
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
+      confirmButtonColor: "#6c757dFB",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
@@ -56,6 +56,9 @@ const ProductsList = () => {
           <b>Title</b>
         </Col>
         <Col className="productListTitles">
+          <b>Picture</b>
+        </Col>
+        <Col className="productListTitles">
           <b>Description</b>
         </Col>
         <Col className="productListTitles">
@@ -76,6 +79,10 @@ const ProductsList = () => {
               <Col>
                 <List.Item className="ProductListItem">{item.title}</List.Item>
               </Col>
+              <Col>
+                <List.Item className="ProductListItem">
+                  <img style={{height:"50px"}}src={item.picture} alt={item.title}></img></List.Item>
+              </Col>
 
               <Col>
                 <List.Item className="ProductListItem">
@@ -95,30 +102,22 @@ const ProductsList = () => {
                 </List.Item>
               </Col>
               <Col>
-                <Row>
-                  <Col>
+                <Row clasName="actions-Flexcontainer">
+                  <Col className="actions-Flexitems">
+                    <ProductsAddEditButton />
+                  </Col>
+                  <Col className="actions-Flexitems" >
                     <Button
-                      className="m-2"
                       type="danger"
                       onClick={() => deleteProduct(item._id)}
                     >
-                      <DeleteOutlined />
+                      Delete
                     </Button>
-                  </Col>
-                  <Col>
-                    {/* <ProductsAddEditButton /> */}
-                    {/* <Button
-                      className="m-2"
-                      type="secondary"
-                      onClick={() => editProduct(item._id)}
-                    >
-                      <EditOutlined />
-                    </Button> */}
                   </Col>
                 </Row>
               </Col>
 
-              <Divider orientation="left"></Divider>
+              <Divider orientation="right"></Divider>
             </Row>
           </>
         );

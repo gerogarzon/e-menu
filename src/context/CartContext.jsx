@@ -9,6 +9,7 @@ export const CartProvider = ({ children }) => {
 
   /* Creamos un estado para el carrito */
   const [cartItems, setCartItems] = useState([]);
+  // console.log("cart",cartItems)
 
   const getProductsCart = async () => {
 
@@ -25,8 +26,7 @@ export const CartProvider = ({ children }) => {
 
   const addItemToCart = async (product) => {
     const { title, picture, price } = product;
-    console.log("add:", product);
-    await axios.post("http://localhost:3100/api/menusCart", {
+     await axios.post("http://localhost:3100/api/menusCart", {
       title,
       picture,
       price,
@@ -35,7 +35,8 @@ export const CartProvider = ({ children }) => {
       icon: "success",
       showConfirmButton: false,
       timer: 600,}
-    ));  
+    )); 
+
     getProductsCart();
   };
 

@@ -24,7 +24,7 @@ export const ItemCart = ({ item }) => {
             </button>
           </div>
         </div>
-        <div className="left">
+        <div className="right">
           <div>{item.amount}</div>
           <p>Total: ${item.amount * item.price}</p>
         </div>

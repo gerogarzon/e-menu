@@ -3,6 +3,7 @@ import { Modal, Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import axiosInstance from "../../util/axiosInstance";
+import axios from "axios";
 import "../../admin/AdminStyles.css";
 
 const ProductsAdd = () => {
@@ -39,17 +40,19 @@ const ProductsAdd = () => {
       console.log("post error:", error);
     }
   };
-  const [categories, setCategories] = useState([]);
 
-  const getCategories = async () => {
+  const [category, setCategory] = useState([]);
+  
+  const getSelectCategories = async () => {
     await fetch("http://localhost:3100/api/categories")
-      .then((response) => response.json())
-      .then((data) => setCategories(data.categoriesDB));
-    //  console.log("add button get categories",setCategories)
-  };
-
+    .then((response) => response.json())
+    .then((data) => setCategory(data.categoriesDB));
+   
+  }
+  // console.log(category)
+  
   useEffect(() => {
-    getCategories();
+    getSelectCategories();   
   }, []);
 
   return (
@@ -102,11 +105,12 @@ const ProductsAdd = () => {
                 {...register("category", { required: true })}
                 id="disabledSelect"
               >
-                {categories?.map((category, key) => {
+                {category?.map((category, key) => {
+                   //console.log("here:",category.name)
                   return (
-                    <div key={key}>
-                      <option >{category.name}</option>
-                    </div>
+                   
+                      <option key={key}>{category.name}</option>
+                    
                   );
                 })}
               </Form.Select>

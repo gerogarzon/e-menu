@@ -32,7 +32,8 @@ const Body = () => {
   };
 
   return (
-    <>    
+    <>
+        
       <Image fluid src={Banner} className="banner-img" />      
       <Container fluid className="menus-container">
         <Container>
@@ -50,7 +51,7 @@ const Body = () => {
                     key={item._id}
                     border="#edeef2"
                     style={{ width: "auto" }}
-                    className="card-items text-dark "
+                    className="card-items text-dark"
                   >
                     <Image
                       fluid

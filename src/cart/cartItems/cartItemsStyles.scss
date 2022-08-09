@@ -25,7 +25,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-  
+        
         .cartItemText {
             font-weight: bold;
             font-size: 13px;
@@ -33,17 +33,23 @@
   
         .buttons {         
              display: flex;
-             gap: 5px;
+             gap: 10px;
   
              button {
-              width: 35px;
+                 width: 50px;
+                 height: 30px;
                  border: none;
                  cursor: pointer;
-                 font-size: 12px;
+                 font-size: 20;
+                 
                  padding: 3px 5px;
                  border-radius: 5px;
                  font-weight: bold;
-                 color: #222222;
+                 color: black;
+             }
+             button:hover{
+              background-color: #979997;
+
              }
         }
       }
@@ -54,6 +60,7 @@
           flex-direction: column;
           margin-top: 12px;
           align-items: flex-end;
+          padding-top: 10px;
   
           div {
               background-color: #32AC23;

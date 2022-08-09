@@ -12,6 +12,7 @@ const Aside = () => {
   return (
     <>
       <Menu
+      style={{height:"100vh"}}
         defaultSelectedKeys={["1"]}
         defaultOpenKeys={["sub1"]}
         mode="inline"
@@ -24,17 +25,19 @@ const Aside = () => {
           </Menu.Item>
         </Link>
 
+        <Link to="/adminOrders">
+          <Menu.Item key="3" icon={<DesktopOutlined />} className="asideLinks">
+            Orders List
+          </Menu.Item>
+        </Link>
+
         <Link to="/adminProducts">
           <Menu.Item key="2" icon={<DesktopOutlined />} className="asideLinks">
             Product list
           </Menu.Item>
         </Link>
 
-        <Link to="/adminOrders">
-          <Menu.Item key="3" icon={<DesktopOutlined />} className="asideLinks">
-            Orders List
-          </Menu.Item>
-        </Link>
+        
 
         <Link to="/adminUsers">
           <Menu.Item

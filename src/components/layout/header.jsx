@@ -4,11 +4,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import Logo from "../../resources/logo2.png";
 import "./styles.css";
-
+import Logout from "../../pages/Logout/Logout";
 
 const Header = () => {
-  /* Traemos del context la funcion para agregar un producto */
-
+  /* Traemos del local storage el current user */
+  let current = JSON.parse(localStorage.getItem("currentUser"));
+  let isAdmin = JSON.parse(localStorage.getItem("isAdmin"));
+  console.log("header", current);
+  console.log("header2", isAdmin);
   return (
     <>
       <Navbar className="personalizedNavbar m-0 p-0" expand="lg">
@@ -23,18 +26,39 @@ const Header = () => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link className="navbarColor" href="/">
-                Inicio
-              </Nav.Link>
-              <Nav.Link className="navbarColor" href="/sobreNosotros">
-                Sobre Nosotros
-              </Nav.Link>
+              {isAdmin === "ADMIN_ROLE" ? (
+                <>
+                  <Nav.Link className="navbarColor" href="/">
+                    Inicio
+                  </Nav.Link>
+
+                  <Nav.Link className="navbarColor" href="/sobreNosotros">
+                    Sobre Nosotros
+                  </Nav.Link>
+
+                  <Nav.Link className="navbarColor" href="/admin">
+                    Admin
+                  </Nav.Link>
+                </>
+              ) : (
+                <>
+                  <Nav.Link className="navbarColor" href="/">
+                    Inicio
+                  </Nav.Link>
+                  <Nav.Link className="navbarColor" href="/sobreNosotros">
+                    Sobre Nosotros
+                  </Nav.Link>
+                </>
+              )}
             </Nav>
             <Nav>
-              <Nav.Link className="navbarColor nav_login me-1" href="/login">
-                Login
-              </Nav.Link>
-
+              {current === null ? (
+                <Nav.Link className="navbarColor nav_login me-1" href="/login">
+                  Login
+                </Nav.Link>
+              ) : (
+                <Logout />
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -9,16 +9,16 @@ const Footer = () => {
       <div className="footer-basic">
         <footer>
           <div className="social">
-            <a href="https://github.com/gerogarzon/e-menu"> 
+            <a href="https://github.com/gerogarzon/e-menu" target="_blank" rel="noreferrer"> 
             <FontAwesomeIcon icon={faGithub} />
             </a>
-            <a href="https://github.com/gerogarzon/e-menu"> 
+            <a href="https://github.com/gerogarzon/e-menu" target="_blank" rel="noreferrer"> 
             <FontAwesomeIcon icon={faGithub} />
             </a>
-            <a href="https://github.com/gerogarzon/e-menu"> 
+            <a href="https://github.com/gerogarzon/e-menu" target="_blank" rel="noreferrer"> 
             <FontAwesomeIcon icon={faGithub} />
             </a>
-            <a href="https://github.com/gerogarzon/e-menu"> 
+            <a href="https://github.com/gerogarzon/e-menu" target="_blank" rel="noreferrer"> 
             <FontAwesomeIcon icon={faGithub} />
             </a>
           </div>
