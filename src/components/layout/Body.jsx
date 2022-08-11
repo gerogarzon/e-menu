@@ -36,12 +36,12 @@ const Body = () => {
         
       <Image fluid src={Banner} className="banner-img" />      
       <Container fluid className="menus-container">
-        <Container>
+        <Container >
           <br />
-          <h2 className="text-center body-menu"> Nuestras secciones: </h2>
+          <h2 className="text-center body-menu" id="productos"> Nuestras secciones: </h2>
           <Categories notFilter={notFilter} filterByCategory={filterByCategory} />
           <br />
-          <h2 className="text-center body-menu"> Nuestro menú: </h2>
+          <h2 className="text-center body-menu" > Nuestro menú: </h2>
           <br></br>
           <Row className="rowPersonalized">
             {items?.map((item) => {

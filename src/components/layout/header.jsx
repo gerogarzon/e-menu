@@ -1,7 +1,5 @@
-import React, { useContext } from "react";
-import { Navbar, Container, Nav, Button, Image } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import React from "react";
+import { Navbar, Container, Nav, Image } from "react-bootstrap";
 import Logo from "../../resources/logo2.png";
 import "./styles.css";
 import Logout from "../../pages/Logout/Logout";
@@ -17,7 +15,7 @@ const Header = () => {
       <Navbar className="personalizedNavbar m-0 p-0" expand="lg">
         <Container fluid>
           <Navbar.Brand href="/" className="m-0 emenuLogo">
-            <Image className="logo m-0" src={Logo} />
+            <Image className="logo m-0" src={Logo}  />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
@@ -28,8 +26,12 @@ const Header = () => {
             >
               {isAdmin === "ADMIN_ROLE" ? (
                 <>
+                 
                   <Nav.Link className="navbarColor" href="/">
                     Inicio
+                  </Nav.Link>
+                  <Nav.Link className="navbarColor" href="#productos">
+                    Productos
                   </Nav.Link>
 
                   <Nav.Link className="navbarColor" href="/sobreNosotros">
@@ -44,6 +46,9 @@ const Header = () => {
                 <>
                   <Nav.Link className="navbarColor" href="/">
                     Inicio
+                  </Nav.Link>
+                  <Nav.Link className="navbarColor" href="#productos">
+                    Productos
                   </Nav.Link>
                   <Nav.Link className="navbarColor" href="/sobreNosotros">
                     Sobre Nosotros

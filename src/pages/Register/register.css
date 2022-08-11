@@ -5,10 +5,11 @@
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
+    padding:15px;
 }
 .register-container{
     flex-basis: 720px;
-    background-color: #47b63a;
+    background-color: #bdea93;
     border-radius:50px;  
     margin:0;
     padding: 20px;   
@@ -26,7 +27,7 @@
     margin:5px;
     padding: 7px;
     flex-grow: 1;
-    color:#fff;
+    color:#111;
 }
 .register-form-label{
  margin: auto;

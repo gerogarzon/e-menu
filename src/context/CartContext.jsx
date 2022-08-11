@@ -55,7 +55,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const cleanCart = () => {
-    setCartItems(null);
+    setCartItems(0);
     localStorage.removeItem("currentUser");
     localStorage.removeItem("isAdmin");
     getProductsCart();

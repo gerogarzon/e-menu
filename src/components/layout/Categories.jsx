@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Card, Container, Row, Col, Image } from "react-bootstrap";
+import todos from "../../resources/diet.png";
 
-
-
-const Categories = ({filterByCategory,notFilter}) => {
-  
+const Categories = ({ filterByCategory, notFilter }) => {
   const [category, setCategory] = useState([]);
 
   useEffect(() => {
@@ -15,14 +13,15 @@ const Categories = ({filterByCategory,notFilter}) => {
 
   return (
     <>
-      <Container >
+      <Container>
         <br />
 
         <Row className="rowPersonalized">
           {category?.map((categories) => {
             return (
               <Col key={categories._id}>
-                <Card onClick={()=> filterByCategory(categories.name)}
+                <Card
+                  onClick={() => filterByCategory(categories.name)}
                   key={categories._id}
                   border="#edeef2"
                   style={{ width: "auto" }}
@@ -30,7 +29,10 @@ const Categories = ({filterByCategory,notFilter}) => {
                 >
                   <Row>
                     <Col md={4}>
-                      <Image src={categories.picture} className="img-category"/>
+                      <Image
+                        src={categories.picture}
+                        className="img-category"
+                      />
                     </Col>
                     <Col md={8}>
                       <Card.Title className="name-category m-2">
@@ -43,25 +45,25 @@ const Categories = ({filterByCategory,notFilter}) => {
               </Col>
             );
           })}
-           <Col >
-                <Card onClick={()=> notFilter()}             
-                  border="#edeef2"
-                  style={{ width: "auto" }}
-                  className="card-categories "
-                >
-                  <Row>
-                    <Col md={4}>
-                      <Image  src={`../resouces/icons/logo.png`} alt={"todos"} className="img-category"/>
-                    </Col>
-                    <Col md={8}>
-                      <Card.Title className="name-category m-2">
-                       Todos
-                      </Card.Title>
-                    </Col>
-                  </Row>
-                </Card>
-                <br />
-              </Col>
+
+          <Col>
+            <Card
+              onClick={() => notFilter()}
+              border="#edeef2"
+              style={{ width: "auto" }}
+              className="card-categories"
+            >
+              <Row>
+                <Col md={4}>
+                  <Image src={todos} alt={"todos"} className="img-category" />
+                </Col>
+                <Col md={8}>
+                  <Card.Title className="name-category m-2">Todos</Card.Title>
+                </Col>
+              </Row>
+            </Card>
+            <br />
+          </Col>
         </Row>
         <br></br>
       </Container>

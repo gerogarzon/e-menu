@@ -53,11 +53,12 @@ const ProductsList = () => {
       </Divider>
       <Row>
         <Col className="productListTitles">
-          <b>Title</b>
-        </Col>
-        <Col className="productListTitles">
           <b>Picture</b>
         </Col>
+        <Col className="productListTitles">
+          <b>Title</b>
+        </Col>
+
         <Col className="productListTitles">
           <b>Description</b>
         </Col>
@@ -77,11 +78,16 @@ const ProductsList = () => {
           <>
             <Row key={key}>
               <Col>
-                <List.Item className="ProductListItem">{item.title}</List.Item>
+                <List.Item className="ProductListItem">
+                  <img
+                    style={{ height: "50px" }}
+                    src={item.picture}
+                    alt={item.title}
+                  ></img>
+                </List.Item>
               </Col>
               <Col>
-                <List.Item className="ProductListItem">
-                  <img style={{height:"50px"}}src={item.picture} alt={item.title}></img></List.Item>
+                <List.Item className="ProductListItem">{item.title}</List.Item>
               </Col>
 
               <Col>
@@ -106,9 +112,9 @@ const ProductsList = () => {
                   <Col className="actions-Flexitems">
                     <ProductsAddEditButton value={item} />
                   </Col>
-                  <Col className="actions-Flexitems" >
+                  <Col className="actions-Flexitems">
                     <Button
-                    className="actions-FlexItems-btn"
+                      className="actions-FlexItems-btn"
                       type="danger"
                       onClick={() => deleteProduct(item._id)}
                     >
