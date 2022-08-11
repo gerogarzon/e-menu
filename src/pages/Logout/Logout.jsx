@@ -1,23 +1,28 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Nav } from "react-bootstrap";
+import CartContext from "../../context/CartContext";
+import axios from "axios";
 
 
 const Logout = () => {
 
-  // const currentUser =  JSON.parse(localStorage.getItem("currentUser"));
+  const { cleanCart } = useContext(CartContext);
+ 
 
   
-  const checkOut = (event) => {
-    localStorage.removeItem("currentUser");
-    localStorage.removeItem("isAdmin");
-  };
+  // const checkOut = () => {
+
+  //   localStorage.removeItem("currentUser");
+  //   localStorage.removeItem("isAdmin");
+
+  // };
 
   return (
     <>
       <Nav.Link
         className="navbarColor nav_login"
         href="/login"
-        onClick={()=>checkOut()}
+        onClick={()=>cleanCart()}
       >
         Logout
       </Nav.Link>

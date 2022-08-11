@@ -5,18 +5,17 @@ import Swal from "sweetalert2";
 import axiosInstance from "../../util/axiosInstance";
 import "../../admin/AdminStyles.css";
 
-const ProductsAddEditButton = () => {
+const ProductsAddEditButton = (item) => {
 
 
-
+  // modal states
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const [form, setForm] = useState(null);
+
   // Form from react hookform
-
+  const [form, setForm] = useState(null);
   const { register, reset, handleSubmit } = useForm();
-
   useEffect(() => {
     setForm("");
   }, []);
@@ -24,6 +23,8 @@ const ProductsAddEditButton = () => {
     reset(form);
   });
 
+
+// Postea en la DB la info cargada en el formulario
   const onSubmit = async (data) => {
     try {
       await axiosInstance.post("/menu/", data);
@@ -41,16 +42,14 @@ const ProductsAddEditButton = () => {
     }
   };
 
+
+// Me traigo las categorias para renderizarlas en el select
   const [category, setCategory] = useState([]);
-  
   const getSelectCategories = async () => {
     await fetch("http://localhost:3100/api/categories")
     .then((response) => response.json())
-    .then((data) => setCategory(data.categoriesDB));
-   
+    .then((data) => setCategory(data.categoriesDB)); 
   }
-  // console.log(category)
-  
   useEffect(() => {
     getSelectCategories();   
   }, []);
@@ -79,6 +78,7 @@ const ProductsAddEditButton = () => {
             <Form.Group className="mb-3">
               <Form.Label>Title</Form.Label>
               <Form.Control
+              value={item.title}
                 type="text"
                 name="title"
                 placeholder="Enter Name"

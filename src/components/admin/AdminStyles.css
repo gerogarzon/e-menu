@@ -22,6 +22,10 @@ main {
     margin-left: 46px;
     
 }
+.actions-FlexItems-btn{
+    margin-right:15px;
+    border-radius: 5px!important;
+}
 
 
 /* styles for add menu button in productAdd */

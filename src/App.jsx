@@ -10,6 +10,7 @@ import { Register } from "./pages/Register/Register";
 import Products from "./components/admin/Products/Products";
 import SobreNosotros from "./pages/SobreNosotros/SobreNosotros";
 import Orders from './components/admin/Orders/Orders'
+import Error404 from './pages/404/Error404'
 import {CartProvider} from './context/CartContext'
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
           <Route path="/adminUsers" element={<Users/>} />
           <Route path="/adminProducts" element={<Products />} />
           <Route path="/adminOrders" element={<Orders/>} />
-          <Route path="/sobreNosotros" element={<SobreNosotros />} />          
+          <Route path="/sobreNosotros" element={<SobreNosotros />} />    
+          <Route path="/Error404" element={<Error404 />} />         
         </Routes>
       </BrowserRouter>
       </CartProvider>

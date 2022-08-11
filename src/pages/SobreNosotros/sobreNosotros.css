@@ -1,3 +1,28 @@
-.SobreNosotros{
-    background-image: url('../../resources/fondo.png')
+.sobrenos-container{
+    background-image: url('../../resources/fondo.png') ;
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    padding:20px; 
+}
+.sobreNosotros-items{
+    border-radius: 20px;
+    box-shadow: 0 0 9px 4px #dddcdc;
+    margin: 20px;
+    padding:20px;
+    
+}
+.card-imagen{  
+    border-radius: 20px; 
+    box-shadow: 0 0 9px 2px #dddcdc;
+}
+.cardLink{
+color: #47b63a;
+font-size: 16px;
+text-align: center;
+}
+.cardLink:hover{
+    color: #105908;
+    font-size: 17px;
 }

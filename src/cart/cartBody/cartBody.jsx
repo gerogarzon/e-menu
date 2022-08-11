@@ -3,6 +3,7 @@ import { ItemCart } from "../cartItems/cartItems";
 import CartContext from "../../context/CartContext";
 import { Container, Button } from "react-bootstrap";
 import "./cartBodyStyles.scss";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   /* Creamos 2 estados, uno para ver si el carrito esta abierto o no 
@@ -12,6 +13,9 @@ const Cart = () => {
 
   /* Traemos del context los productos del carrito */
   const { cartItems } = useContext(CartContext);
+
+    /* guardo en una variable el current user de la localstorage */
+    const isLogin = JSON.parse(localStorage.getItem("currentUser"))
 
   /* Cada vez que se modifica el carrito, actualizamos la cantidad de productos */
   useEffect(() => {
@@ -95,7 +99,16 @@ const Cart = () => {
               <div></div>
             ) : (
               <div className="btn-pagar">
-                <Button className="pagar">Pagar</Button>
+                {isLogin === null ? (
+                   <Link to="/login" className="pagar">
+                   <Button className="pagar">Pagar</Button>
+                   </Link>
+                ):(
+                  <Link to="/Error404" className="pagar">
+                   <Button className="pagar">Pagar</Button>
+                   </Link>
+                )}
+               
               </div>
             )}
             

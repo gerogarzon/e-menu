@@ -1,0 +1,25 @@
+.mainContainer404{
+    height: 100vh;
+    width: 100vw;
+    margin:0;
+    padding:0;
+    
+}
+
+
+
+.error-container {
+    background-image: url("../../resources/fondo.png");
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-content: center;
+    flex-wrap: wrap;
+    
+   
+}
+
+.error-item{
+    max-height: 335px;
+    flex-grow: 1;
+}

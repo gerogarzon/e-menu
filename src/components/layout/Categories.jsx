@@ -26,11 +26,11 @@ const Categories = ({filterByCategory,notFilter}) => {
                   key={categories._id}
                   border="#edeef2"
                   style={{ width: "auto" }}
-                  className="card-categories "
+                  className="card-categories"
                 >
                   <Row>
                     <Col md={4}>
-                      <Image  src={categories.picture} className="img-category"/>
+                      <Image src={categories.picture} className="img-category"/>
                     </Col>
                     <Col md={8}>
                       <Card.Title className="name-category m-2">

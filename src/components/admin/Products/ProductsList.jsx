@@ -104,10 +104,11 @@ const ProductsList = () => {
               <Col>
                 <Row clasName="actions-Flexcontainer">
                   <Col className="actions-Flexitems">
-                    <ProductsAddEditButton />
+                    <ProductsAddEditButton value={item} />
                   </Col>
                   <Col className="actions-Flexitems" >
                     <Button
+                    className="actions-FlexItems-btn"
                       type="danger"
                       onClick={() => deleteProduct(item._id)}
                     >

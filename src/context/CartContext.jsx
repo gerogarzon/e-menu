@@ -9,15 +9,15 @@ export const CartProvider = ({ children }) => {
 
   /* Creamos un estado para el carrito */
   const [cartItems, setCartItems] = useState([]);
-  // console.log("cart",cartItems)
+  
+
+  
 
   const getProductsCart = async () => {
-
     return await axios
       .get("http://localhost:3100/api/menusCart")
       .then(({ data }) => setCartItems(data.menusCart))
-      .catch((error) => console.error(error));
-     
+      .catch((error) => console.error(error));     
   };
 
   useEffect(() => {  
@@ -36,7 +36,6 @@ export const CartProvider = ({ children }) => {
       showConfirmButton: false,
       timer: 600,}
     )); 
-
     getProductsCart();
   };
 
@@ -55,10 +54,19 @@ export const CartProvider = ({ children }) => {
     getProductsCart();
   };
 
+  const cleanCart = () => {
+    setCartItems(null);
+    localStorage.removeItem("currentUser");
+    localStorage.removeItem("isAdmin");
+    getProductsCart();
+  }
+
   return (
-    /* Envolvemos el children con el provider y le pasamos un objeto con las propiedades que necesitamos por value */
+    
+    /* Envolvemos el children con el provider y le pasamos un objeto con las propiedades
+     que necesitamos por value */
     <CartContext.Provider
-      value={{ cartItems, addItemToCart, editItemToCart }}
+      value={{ cartItems, addItemToCart, editItemToCart, cleanCart }}
     >
       {children}
     </CartContext.Provider>

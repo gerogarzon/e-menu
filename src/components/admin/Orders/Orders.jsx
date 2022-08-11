@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { Layout, List, Divider } from "antd";
-import { Row, Col, Button, Image, Container} from "react-bootstrap";
+import { Row, Col, Button, Image, Container } from "react-bootstrap";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import Adminheader from "../AdminLayout/AdminHeader";
 import Aside from "../AdminLayout/Aside";
 import CartContext from "../../../context/CartContext";
+import { Link } from "react-router-dom";
 
 const { Sider, Content } = Layout;
 
@@ -47,18 +48,17 @@ const Orders = () => {
                 </Row>
                 <Divider orientation="left"></Divider>
                 {cartItems.map((cart, key) => {
-                  console.log("picture:", cart.pictutre);
                   return (
                     <Row>
                       <Col>
                         <List.Item className="ProductListItem">
                           <Container fluid>
-                          <Image  
-                            style={{height:"80px"}}                      
-                            src={`${cart.picture}`}
-                            alt={cart.title}
-                          ></Image>
-                          </Container>                          
+                            <Image
+                              style={{ height: "80px" }}
+                              src={`${cart.picture}`}
+                              alt={cart.title}
+                            ></Image>
+                          </Container>
                         </List.Item>
                       </Col>
                       <Col>
@@ -77,10 +77,14 @@ const Orders = () => {
                         </List.Item>
                       </Col>
                       <Col>
-                        <Button className="m-2" variant="secondary">
-                          Confirm
-                        </Button>
-                        <Button variant="danger">Cancel</Button>
+                        <Link to="/Error404">
+                          <Button className="m-2" variant="secondary">
+                            Confirm
+                          </Button>
+                        </Link>
+                        <Link to="/Error404">
+                          <Button variant="danger">Cancel</Button>
+                        </Link>
                       </Col>
                       <Divider orientation="left"></Divider>
                     </Row>
@@ -88,7 +92,7 @@ const Orders = () => {
                 })}
               </>
             ) : (
-              <h4 style={{paddingLeft:"30px"}}>No order registered</h4>
+              <h4 style={{ paddingLeft: "30px" }}>No order registered</h4>
             )}
           </Content>
         </Layout>
