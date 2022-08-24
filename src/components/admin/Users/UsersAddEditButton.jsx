@@ -2,10 +2,10 @@ import React, { useState, useEffect} from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import axiosInstance from "../../util/axiosInstance";
+import axios from "axios";
 import "../../admin/AdminStyles.css";
 
-const UsersAdd = () => {
+const UsersAddEditButton = (propsId) => {
   // modal from react boostrap
 
   const [show, setShow] = useState(false);
@@ -31,10 +31,12 @@ const UsersAdd = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axiosInstance.post("/user/", data);
+        await axios.put(`http://localhost:3100/api/user/${propsId.propsId}`, 
+        data
+      )
       Swal.fire({
-        title: "User submitted",
-        text: "You just submitted an user",
+        title: "User edited",
+        text: "You just edit an user",
         position: "center",
         icon: "success",
         showConfirmButton: true,
@@ -56,12 +58,12 @@ const UsersAdd = () => {
         variant="secondary"
         onClick={handleShow}
       >
-        +Add
+        Edit
       </Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Add User</Modal.Title>
+          <Modal.Title>Add Edit</Modal.Title>
         </Modal.Header>
         <Modal.Body>
 
@@ -125,4 +127,4 @@ const UsersAdd = () => {
   );
 };
 
-export default UsersAdd;
+export default UsersAddEditButton;

@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import axiosInstance from "../../util/axiosInstance";
+import axios from "axios";
 import "../../admin/AdminStyles.css";
 
-const ProductsAddEditButton = (item) => {
-
+const ProductsAddEditButton = (propsId) => {
+ 
 
   // modal states
   const [show, setShow] = useState(false);
@@ -26,15 +26,20 @@ const ProductsAddEditButton = (item) => {
 
 // Postea en la DB la info cargada en el formulario
   const onSubmit = async (data) => {
+    console.log("edit:", data);
+    console.log("editID:",propsId.propsId);
+    
     try {
-      await axiosInstance.post("/menu/", data);
+      await axios.put(`http://localhost:3100/api/menu/${propsId.propsId}`, 
+        data
+      );
       Swal.fire({
-        title: "Product submitted",
-        text: "You just submitted a product",
+        title: "Product edited",
+        text: "You just edit a product",
         position: "center",
         icon: "success",
         showConfirmButton: true,
-        timer: 1200,
+        timer: 2000,
       });
       setShow(false);
     } catch (error) {
@@ -78,7 +83,7 @@ const ProductsAddEditButton = (item) => {
             <Form.Group className="mb-3">
               <Form.Label>Title</Form.Label>
               <Form.Control
-              value={item.title}
+              
                 type="text"
                 name="title"
                 placeholder="Enter Name"

@@ -11,11 +11,13 @@ import ProductsAddEditButton from "./ProductsAddEditButton";
 
 const ProductsList = () => {
   const [items, setItems] = useState([]);
+  // console.log("ooo", items);
 
   const getProduct = async () => {
     await fetch("http://localhost:3100/api/menus")
       .then((response) => response.json())
       .then((data) => setItems(data.menusDB));
+      
   };
 
   const deleteProduct = (_id) => {
@@ -41,6 +43,9 @@ const ProductsList = () => {
       }
     });
   };
+
+
+
 
   useEffect(() => {
     getProduct();
@@ -110,7 +115,7 @@ const ProductsList = () => {
               <Col>
                 <Row clasName="actions-Flexcontainer">
                   <Col className="actions-Flexitems">
-                    <ProductsAddEditButton value={item} />
+                    <ProductsAddEditButton propsId={item._id} />                    
                   </Col>
                   <Col className="actions-Flexitems">
                     <Button
