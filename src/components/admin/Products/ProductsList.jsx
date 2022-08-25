@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { List, Divider, Button } from "antd";
-import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
+import { DeleteOutlined } from "@ant-design/icons";
 import { useForm } from "react-hook-form";
 import "../../admin/AdminStyles.css";
 import Swal from "sweetalert2";
@@ -17,7 +17,6 @@ const ProductsList = () => {
     await fetch("http://localhost:3100/api/menus")
       .then((response) => response.json())
       .then((data) => setItems(data.menusDB));
-      
   };
 
   const deleteProduct = (_id) => {
@@ -43,9 +42,6 @@ const ProductsList = () => {
       }
     });
   };
-
-
-
 
   useEffect(() => {
     getProduct();
@@ -115,16 +111,17 @@ const ProductsList = () => {
               <Col>
                 <Row clasName="actions-Flexcontainer">
                   <Col className="actions-Flexitems">
-                    <ProductsAddEditButton props={item} />                    
-                  </Col>
-                  <Col className="actions-Flexitems">
                     <Button
+                      style={{ maxWidth: "53px", minHeight: "38px" }}
                       className="actions-FlexItems-btn"
                       type="danger"
                       onClick={() => deleteProduct(item._id)}
                     >
-                      Delete
+                      <DeleteOutlined />
                     </Button>
+                  </Col>
+                  <Col className="actions-Flexitems">
+                    <ProductsAddEditButton props={item} />
                   </Col>
                 </Row>
               </Col>
