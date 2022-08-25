@@ -24,7 +24,7 @@ const SobreNosotros = () => {
           </Card.Body>
         </Card>
 
-        <Card className="sobreNosotros-items" style={{ width: "18rem" }}>
+        {/* <Card className="sobreNosotros-items" style={{ width: "18rem" }}>
           <Card.Img className="card-imagen" variant="top" src={gero} alt="creator image"/>
           <Card.Body>
             <Card.Title>Ivan Roldan</Card.Title>
@@ -37,10 +37,9 @@ const SobreNosotros = () => {
             <Card.Link className="cardLink" href="#" target="_blank">Card Link</Card.Link>
             <Card.Link className="cardLink" href="#" target="_blank">Another Link</Card.Link>
           </Card.Body>
-        </Card>
+        </Card> */}
       </div>
-      {/* 
-     Hola! Mi nombre es geronimo, MERN Full Stack Developer e Ingeniero Industrial. Me apasiona la tecnologia e intento estar siempre a la altura de la vanguardia mundial. Puedes contactarme presionando el boton de abajo. Saludos! */}
+     
 
       <Footer />
     </>
