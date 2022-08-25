@@ -175,8 +175,8 @@
   font-size: 18px;
   line-height: 1.6;
   margin-bottom: 0;
-  background-color: #ccc!important;
-  color:#222;
+  background-color: #bdea93!important;
+  color:#000;
 }
 
 
@@ -217,13 +217,6 @@
   opacity: 0.9;
 }
 
-/* .footer-basic .copyright {
-    margin-top:15px;
-    text-align:center;
-    font-size:13px;
-    color:#aaa;
-    margin-bottom:0;
-  } */
 .copyright-container {
   background-color: #bdea93;
   display:flex;

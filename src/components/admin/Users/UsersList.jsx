@@ -96,12 +96,13 @@ const UsersList = () => {
                       className="m-2"
                       type="danger"
                       onClick={() => deleteUser(userItem._id)}
+                      style={{minHeight:"40px", minWidth:"50px", borderRadius:"5px"}}
                     >
                       <DeleteOutlined />
                     </Button>
                   </Col>
                   <Col>
-                    <UsersAddEditButton propsId={userItem._id} />
+                    <UsersAddEditButton props={userItem} />
                   </Col>
                 </Row>
               </Col>

@@ -5,7 +5,8 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import "../../admin/AdminStyles.css";
 
-const UsersAddEditButton = (propsId) => {
+const UsersAddEditButton = (props) => {
+
   // modal from react boostrap
 
   const [show, setShow] = useState(false);
@@ -31,7 +32,7 @@ const UsersAddEditButton = (propsId) => {
 
   const onSubmit = async (data) => {
     try {
-        await axios.put(`http://localhost:3100/api/user/${propsId.propsId}`, 
+        await axios.put(`http://localhost:3100/api/user/${props.props._id}`, 
         data
       )
       Swal.fire({
@@ -54,6 +55,7 @@ const UsersAddEditButton = (propsId) => {
   return (
     <div className="AddButton">
       <Button
+       style={{margin:"0",minHeight:"40px", maxWidth:"50px"}}
         className="AddButtonStyle"
         variant="secondary"
         onClick={handleShow}
@@ -77,6 +79,7 @@ const UsersAddEditButton = (propsId) => {
             <Form.Group className="mb-3">
               <Form.Label>Full Name</Form.Label>
               <Form.Control
+                defaultValue={props.props.fullname}
                 type="text"
                 name="fullname"
                 placeholder="Enter fullname"
@@ -87,6 +90,7 @@ const UsersAddEditButton = (propsId) => {
             <Form.Group className="mb-3">
               <Form.Label>Email</Form.Label>
               <Form.Control
+               defaultValue={props.props.email}
                 type="email"
                 name="email"
                 placeholder="Enter Email"
@@ -97,6 +101,7 @@ const UsersAddEditButton = (propsId) => {
             <Form.Group className="mb-3">
               <Form.Label htmlFor="disabledSelect">Password</Form.Label>
               <Form.Control
+               
                 type="password"
                 name="password"
                 placeholder="Enter password"
@@ -107,6 +112,7 @@ const UsersAddEditButton = (propsId) => {
             <Form.Group className="mb-3">
               <Form.Label>Role</Form.Label>
               <Form.Select
+               defaultValue={props.props.role}
                type="text"
                name="role"
                placeholder="Enter Role"

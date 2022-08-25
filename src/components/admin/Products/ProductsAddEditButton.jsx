@@ -5,9 +5,8 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import "../../admin/AdminStyles.css";
 
-const ProductsAddEditButton = (propsId) => {
- 
-
+const ProductsAddEditButton = (props) => {
+  
   // modal states
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -23,14 +22,14 @@ const ProductsAddEditButton = (propsId) => {
     reset(form);
   });
 
-
-// Postea en la DB la info cargada en el formulario
+  // Postea en la DB la info cargada en el formulario
   const onSubmit = async (data) => {
     console.log("edit:", data);
-    console.log("editID:",propsId.propsId);
-    
+    console.log("editID:", props.props._id);
+
     try {
-      await axios.put(`http://localhost:3100/api/menu/${propsId.propsId}`, 
+      await axios.put(
+        `http://localhost:3100/api/menu/${props.props._id}`,
         data
       );
       Swal.fire({
@@ -47,20 +46,19 @@ const ProductsAddEditButton = (propsId) => {
     }
   };
 
-
-// Me traigo las categorias para renderizarlas en el select
+  // Me traigo las categorias para renderizarlas en el select
   const [category, setCategory] = useState([]);
   const getSelectCategories = async () => {
     await fetch("http://localhost:3100/api/categories")
-    .then((response) => response.json())
-    .then((data) => setCategory(data.categoriesDB)); 
-  }
+      .then((response) => response.json())
+      .then((data) => setCategory(data.categoriesDB));
+  };
   useEffect(() => {
-    getSelectCategories();   
+    getSelectCategories();
   }, []);
 
   return (
-    <div >
+    <div>
       <Button
         className="AddButtonStyle"
         variant="secondary"
@@ -83,7 +81,7 @@ const ProductsAddEditButton = (propsId) => {
             <Form.Group className="mb-3">
               <Form.Label>Title</Form.Label>
               <Form.Control
-              
+                defaultValue={props.props.title}
                 type="text"
                 name="title"
                 placeholder="Enter Name"
@@ -94,6 +92,7 @@ const ProductsAddEditButton = (propsId) => {
             <Form.Group className="mb-3">
               <Form.Label>Description</Form.Label>
               <Form.Control
+                defaultValue={props.props.description}
                 type="text"
                 name="description"
                 placeholder="Enter Description"
@@ -104,6 +103,7 @@ const ProductsAddEditButton = (propsId) => {
             <Form.Group className="mb-3">
               <Form.Label htmlFor="disabledSelect">Category</Form.Label>
               <Form.Select
+                defaultValue={props.props.category}
                 type="text"
                 name="category"
                 placeholder="Select Category"
@@ -111,10 +111,8 @@ const ProductsAddEditButton = (propsId) => {
                 id="disabledSelect"
               >
                 {category?.map((category, key) => {
-                   //console.log("here:",category.name)
-                  return (
-                      <option key={key}>{category.name}</option>                  
-                  );
+                  //console.log("here:",category.name)
+                  return <option key={key}>{category.name}</option>;
                 })}
               </Form.Select>
             </Form.Group>
@@ -122,6 +120,7 @@ const ProductsAddEditButton = (propsId) => {
             <Form.Group className="mb-3">
               <Form.Label>Price</Form.Label>
               <Form.Control
+                defaultValue={props.props.price}
                 type="number"
                 name="price"
                 placeholder="Enter Price"
@@ -137,6 +136,7 @@ const ProductsAddEditButton = (propsId) => {
             <Form.Group className="mb-3">
               <Form.Label>Picture</Form.Label>
               <Form.Control
+                defaultValue={props.props.picture}
                 type="text"
                 name="picture"
                 placeholder="Add URL picture"
@@ -154,4 +154,4 @@ const ProductsAddEditButton = (propsId) => {
   );
 };
 
-export default ProductsAddEditButton
+export default ProductsAddEditButton;

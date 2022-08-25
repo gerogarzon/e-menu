@@ -115,7 +115,7 @@ const ProductsList = () => {
               <Col>
                 <Row clasName="actions-Flexcontainer">
                   <Col className="actions-Flexitems">
-                    <ProductsAddEditButton propsId={item._id} />                    
+                    <ProductsAddEditButton props={item} />                    
                   </Col>
                   <Col className="actions-Flexitems">
                     <Button
