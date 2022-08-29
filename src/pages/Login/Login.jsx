@@ -1,6 +1,6 @@
 import Footer from "../../components/layout/Footer";
 import Header from "../../components/layout/Header";
-import { Button, Container, Form, Row, Col } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import React, { useState } from "react";
 import axios from "axios";
 import "./login.css";
@@ -34,7 +34,7 @@ export const Login = () => {
         showConfirmButton: false,
         timer: 1500,
       });
-      // event.target.reset()
+    
 
       if (current.role === "ADMIN_ROLE") {
         window.location.assign(`http://localhost:3000/admin`);
