@@ -22,6 +22,7 @@ export const Login = () => {
   const onSubmit = async (loginData, event) => {
     try {
       const login = await axios.post(`${URL}/login`, loginData);
+      console.log(login)
       localStorage.setItem("userToken", JSON.stringify(login.data.token));
       localStorage.setItem("currentUser", JSON.stringify(login.data.user));
       localStorage.setItem("isAdmin", JSON.stringify(login.data.user.role));
@@ -35,7 +36,6 @@ export const Login = () => {
         timer: 1500,
       });
     
-
       if (current.role === "ADMIN_ROLE") {
         window.location.assign(`http://localhost:3000/admin`);
       } else {
@@ -50,7 +50,7 @@ export const Login = () => {
         icon: "error",
         title: `${error}`,
         showConfirmButton: false,
-        timer: 1500,
+        timer: 5500,
       });
     }
   };
