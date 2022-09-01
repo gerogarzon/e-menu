@@ -37,7 +37,7 @@ const Footer = () => {
       </div>
       <div className="copyright-container">
         <p className="copyright">
-          e-menu © 2022 | Designed by C20I- Rolling Code
+          e-menu © 2022 | Designed by Geronimo Garzon & Ivan Roldan C20I- Rolling Code
         </p>
       </div>
     </>

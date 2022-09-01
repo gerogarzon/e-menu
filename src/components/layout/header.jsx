@@ -30,9 +30,7 @@ const Header = () => {
                   <Nav.Link className="navbarColor" href="/">
                     Inicio
                   </Nav.Link>
-                  <Nav.Link className="navbarColor" href="#productos">
-                    Productos
-                  </Nav.Link>
+                 
 
                   <Nav.Link className="navbarColor" href="/sobreNosotros">
                     Sobre Nosotros
@@ -47,9 +45,7 @@ const Header = () => {
                   <Nav.Link className="navbarColor" href="/">
                     Inicio
                   </Nav.Link>
-                  <Nav.Link className="navbarColor" href="#productos">
-                    Productos
-                  </Nav.Link>
+                  
                   <Nav.Link className="navbarColor" href="/sobreNosotros">
                     Sobre Nosotros
                   </Nav.Link>
