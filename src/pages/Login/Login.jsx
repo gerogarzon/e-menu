@@ -1,5 +1,5 @@
 import Footer from "../../components/layout/Footer";
-import Header from "../../components/layout/Header";
+import Header from "../../components/layout/header";
 import { Button, Form } from "react-bootstrap";
 import React, { useState } from "react";
 import axios from "axios";

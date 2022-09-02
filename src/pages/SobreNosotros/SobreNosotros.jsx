@@ -1,6 +1,6 @@
 import React from "react";
-import { Container, Button, ListGroup, Card } from "react-bootstrap";
-import Header from "../../components/layout/Header";
+import { Card } from "react-bootstrap";
+import Header from "../../components/layout/header";
 import Footer from "../../components/layout/Footer";
 import "./sobreNosotros.css";
 import gero from "../../resources/gero.jpg";

@@ -1,9 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import Footer from "../../components/layout/Footer";
-import Header from "../../components/layout/Header";
+import Header from "../../components/layout/header";
 import axios from "axios";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Button, Container, Form } from "react-bootstrap";
 import Swal from "sweetalert2";
 import "./register.css";
 const URL = process.env.REACT_APP_URL;
