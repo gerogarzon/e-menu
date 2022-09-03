@@ -7,12 +7,14 @@ import { Row, Col } from "react-bootstrap";
 import axiosInstance from "../../util/axiosInstance";
 import Swal from "sweetalert2";
 import UsersAddEditButton from "./UsersAddEditButton";
+const URL = process.env.REACT_APP_URL;
 
 const UsersList = () => {
+
   const [users, setUsers] = useState([]);
 
   const getUser = async () => {
-    await fetch("http://localhost:3100/api/users")
+    await fetch(`${URL}/api/users`)
       .then((response) => response.json())
       .then((data) => setUsers(data.usuariosDB));
   };
@@ -28,7 +30,7 @@ const UsersList = () => {
       confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        await axiosInstance.delete(`/user/${_id}`);
+        await axiosInstance.delete(`/api/user/${_id}`);
         getUser();
 
         Swal.fire({

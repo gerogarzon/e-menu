@@ -21,7 +21,7 @@ export const Login = () => {
 
   const onSubmit = async (loginData, event) => {
     try {
-      const login = await axios.post(`${URL}/login`, loginData);
+      const login = await axios.post(`${URL}/api/login`, loginData);
       console.log(login)
       localStorage.setItem("userToken", JSON.stringify(login.data.token));
       localStorage.setItem("currentUser", JSON.stringify(login.data.user));
@@ -37,9 +37,9 @@ export const Login = () => {
       });
     
       if (current.role === "ADMIN_ROLE") {
-        window.location.assign(`http://localhost:3000/admin`);
+        window.location.assign(`https://e-menu-rc.netlify.app/admin`);
       } else {
-        window.location.assign(`http://localhost:3000/`);
+        window.location.assign(`https://e-menu-rc.netlify.app/`);
       }
     } catch (error) {
       setErrorMsg(error.response.data.msg);

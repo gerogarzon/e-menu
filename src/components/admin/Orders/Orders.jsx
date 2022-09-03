@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Layout, List, Divider } from "antd";
 import { Row, Col, Button, Image, Container } from "react-bootstrap";
-import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import Adminheader from "../AdminLayout/AdminHeader";
 import Aside from "../AdminLayout/Aside";
 import CartContext from "../../../context/CartContext";
@@ -10,6 +9,7 @@ import { Link } from "react-router-dom";
 const { Sider, Content } = Layout;
 
 const Orders = () => {
+
   const { cartItems } = useContext(CartContext);
 
   return (
@@ -26,7 +26,7 @@ const Orders = () => {
               <h5>Orders List:</h5>
             </Divider>
 
-            {cartItems != 0 ? (
+            {cartItems !== 0 ? (
               <>
                 <Row>
                   <Col className="productListTitles">

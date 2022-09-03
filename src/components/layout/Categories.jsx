@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Card, Container, Row, Col, Image } from "react-bootstrap";
 import todos from "../../resources/diet.png";
+const URL = process.env.REACT_APP_URL;
 
 const Categories = ({ filterByCategory, notFilter }) => {
   const [category, setCategory] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3100/api/categories")
+    fetch(`${URL}/api/categories`)
       .then((response) => response.json())
       .then((data) => setCategory(data.categoriesDB));
   }, []);

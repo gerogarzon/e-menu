@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import axios from "axios";
 import "../../admin/AdminStyles.css";
+const URL = process.env.REACT_APP_URL;
 
 const ProductsAddEditButton = (props) => {
   
@@ -29,7 +30,7 @@ const ProductsAddEditButton = (props) => {
 
     try {
       await axios.put(
-        `http://localhost:3100/api/menu/${props.props._id}`,
+        `${URL}/api/menu/${props.props._id}`,
         data
       );
       Swal.fire({
@@ -49,7 +50,7 @@ const ProductsAddEditButton = (props) => {
   // Me traigo las categorias para renderizarlas en el select
   const [category, setCategory] = useState([]);
   const getSelectCategories = async () => {
-    await fetch("http://localhost:3100/api/categories")
+    await fetch(`${URL}/api/categories`)
       .then((response) => response.json())
       .then((data) => setCategory(data.categoriesDB));
   };

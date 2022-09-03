@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { List, Divider, Button } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
-import { useForm } from "react-hook-form";
 import "../../admin/AdminStyles.css";
 import Swal from "sweetalert2";
 import axiosInstance from "../../util/axiosInstance";
-import { Modal, Form, Row, Col } from "react-bootstrap";
-
+import {Row, Col} from "react-bootstrap";
 import ProductsAddEditButton from "./ProductsAddEditButton";
+const URL = process.env.REACT_APP_URL;
+
 
 const ProductsList = () => {
+
   const [items, setItems] = useState([]);
-  // console.log("ooo", items);
+
 
   const getProduct = async () => {
-    await fetch("http://localhost:3100/api/menus")
+    await fetch(`${URL}/api/menus`)
       .then((response) => response.json())
       .then((data) => setItems(data.menusDB));
   };
@@ -30,7 +31,7 @@ const ProductsList = () => {
       confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        await axiosInstance.delete(`/menu/${_id}`);
+        await axiosInstance.delete(`/api/menu/${_id}`);
         getProduct();
         Swal.fire({
           title: "Deleted!",

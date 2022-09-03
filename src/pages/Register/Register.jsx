@@ -13,7 +13,7 @@ export const Register = () => {
 
   const onSubmit = async (addUserData, event) => {
     try {
-      const addUser = await axios.post(`${URL}/user`, addUserData);
+      const addUser = await axios.post(`${URL}/api/user`, addUserData);
       Swal.fire({
         position: "center",
         icon: "success",
@@ -22,7 +22,7 @@ export const Register = () => {
         timer: 2500,
       });
       event.target.reset();
-      window.location.assign(`http://localhost:3000/login`);
+      window.location.assign(`https://e-menu-rc.netlify.app/login`);
     } catch (error) {}
   };
   return (

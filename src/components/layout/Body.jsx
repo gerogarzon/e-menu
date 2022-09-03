@@ -4,6 +4,7 @@ import Banner from "../../resources/Banner.jpg";
 import Categories from "./Categories";
 import "./styles.css";
 import CartContext from "../../context/CartContext";
+const URL = process.env.REACT_APP_URL;
 
 const Body = () => {
   const [items, setItems] = useState([]);
@@ -12,7 +13,7 @@ const Body = () => {
   const { addItemToCart} = useContext(CartContext);
 
   useEffect(() => {
-    fetch("http://localhost:3100/api/menus")
+    fetch(`${URL}/api/menus`)
       .then((response) => response.json())
       .then((data) => {
         setItems(data.menusDB);

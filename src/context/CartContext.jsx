@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+const URL = process.env.REACT_APP_URL;
 
 /* Creamos el context, se le puede pasar un valor inicial */
 const CartContext = createContext();
@@ -15,7 +16,7 @@ export const CartProvider = ({ children }) => {
 
   const getProductsCart = async () => {
     return await axios
-      .get("http://localhost:3100/api/menusCart")
+      .get(`${URL}/api/menusCart`)
       .then(({ data }) => setCartItems(data.menusCart))
       .catch((error) => console.error(error));     
   };
@@ -26,7 +27,7 @@ export const CartProvider = ({ children }) => {
 
   const addItemToCart = async (product) => {
     const { title, picture, price } = product;
-     await axios.post("http://localhost:3100/api/menusCart", {
+     await axios.post(`${URL}/api/menusCart`, {
       title,
       picture,
       price,
@@ -42,11 +43,11 @@ export const CartProvider = ({ children }) => {
   const editItemToCart = async (menuId, query, amount) => {
     if (query === "del" && amount === 1) {
       await axios
-        .delete(`http://localhost:3100/api/menusCart/${menuId}`)
+        .delete(`${URL}/api/menusCart/${menuId}`)
         .then(({ data }) => console.log(data));
     } else {
       await axios
-        .put(`http://localhost:3100/api/menusCart/${menuId}?query=${query}`, {
+        .put(`${URL}/api/menusCart/${menuId}?query=${query}`, {
           amount,
         })
         .then(({ data }) => console.log(data));

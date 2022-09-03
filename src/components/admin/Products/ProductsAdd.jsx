@@ -3,8 +3,9 @@ import { Modal, Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import axiosInstance from "../../util/axiosInstance";
-import axios from "axios";
 import "../../admin/AdminStyles.css";
+const URL = process.env.REACT_APP_URL;
+
 
 const ProductsAdd = () => {
   // modal from react boostrap
@@ -44,7 +45,7 @@ const ProductsAdd = () => {
   const [category, setCategory] = useState([]);
   
   const getSelectCategories = async () => {
-    await fetch("http://localhost:3100/api/categories")
+    await fetch(`${URL}/api/categories`)
     .then((response) => response.json())
     .then((data) => setCategory(data.categoriesDB));
    

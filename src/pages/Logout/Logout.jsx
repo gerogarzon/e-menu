@@ -7,15 +7,7 @@ import axios from "axios";
 const Logout = () => {
 
   const { cleanCart } = useContext(CartContext);
- 
 
-  
-  // const checkOut = () => {
-
-  //   localStorage.removeItem("currentUser");
-  //   localStorage.removeItem("isAdmin");
-
-  // };
 
   return (
     <>

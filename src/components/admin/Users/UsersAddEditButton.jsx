@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import axios from "axios";
 import "../../admin/AdminStyles.css";
+const URL = process.env.REACT_APP_URL;
 
 const UsersAddEditButton = (props) => {
 
@@ -32,7 +33,7 @@ const UsersAddEditButton = (props) => {
 
   const onSubmit = async (data) => {
     try {
-        await axios.put(`http://localhost:3100/api/user/${props.props._id}`, 
+        await axios.put(`${URL}/api/user/${props.props._id}`, 
         data
       )
       Swal.fire({

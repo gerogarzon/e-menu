@@ -12,7 +12,7 @@ const Aside = () => {
   return (
     <>
       <Menu
-      style={{height:"100vh"}}
+        style={{ height: "100vh" }}
         defaultSelectedKeys={["1"]}
         defaultOpenKeys={["sub1"]}
         mode="inline"
@@ -36,8 +36,6 @@ const Aside = () => {
             Product list
           </Menu.Item>
         </Link>
-
-        
 
         <Link to="/adminUsers">
           <Menu.Item
