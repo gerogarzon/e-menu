@@ -14,13 +14,13 @@ const Categories = ({ filterByCategory, notFilter }) => {
 
   return (
     <>
-      <Container>
+      <Container clasName="categoriesMainContainer">
         <br />
 
         <Row className="rowPersonalized">
           {category?.map((categories) => {
             return (
-              <Col key={categories._id}>
+              <Col key={categories._id} className="categoriesCol">
                 <Card
                   onClick={() => filterByCategory(categories.name)}
                   key={categories._id}
@@ -47,7 +47,7 @@ const Categories = ({ filterByCategory, notFilter }) => {
             );
           })}
 
-          <Col>
+          <Col className="categoriesCol">
             <Card
               onClick={() => notFilter()}
               border="#edeef2"

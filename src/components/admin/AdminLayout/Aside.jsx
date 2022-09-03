@@ -17,7 +17,7 @@ const Aside = () => {
         defaultOpenKeys={["sub1"]}
         mode="inline"
         theme="light"
-        //   inlineCollapsed={this.state.collapsed}
+       
       >
         <Link to="/">
           <Menu.Item key="1" icon={<HomeOutlined />} className="asideLinks">

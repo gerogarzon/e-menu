@@ -18,7 +18,7 @@ const Header = () => {
             <Image className="logo m-0" src={Logo}  />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
+          <Navbar.Collapse dark id="navbarScroll">
             <Nav
               className="me-auto "
               style={{ maxHeight: "100px" }}
