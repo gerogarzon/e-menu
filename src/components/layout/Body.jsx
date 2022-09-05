@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext} from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Card, Container, Row, Col, Image, Button } from "react-bootstrap";
 import Banner from "../../resources/Banner.jpg";
 import Categories from "./Categories";
@@ -10,7 +10,11 @@ const Body = () => {
   const [items, setItems] = useState([]);
   const [origin, setOrigin] = useState([]);
 
-  const { addItemToCart} = useContext(CartContext);
+  const { addItemToCart } = useContext(CartContext);
+
+  /* guardo en una variable el current user de la localstorage */
+  const isLogin = JSON.parse(localStorage.getItem("currentUser"));
+  
 
   useEffect(() => {
     fetch(`${URL}/api/menus`)
@@ -34,15 +38,20 @@ const Body = () => {
 
   return (
     <>
-        
-      <Image fluid src={Banner} className="banner-img" />      
+      <Image fluid src={Banner} className="banner-img" />
       <Container fluid className="menus-container">
-        <Container >
+        <Container>
           <br />
-          <h2 className="text-center body-menu" id="productos"> Nuestras secciones: </h2>
-          <Categories notFilter={notFilter} filterByCategory={filterByCategory} />
+          <h2 className="text-center body-menu" id="productos">
+            {" "}
+            Nuestras secciones:{" "}
+          </h2>
+          <Categories
+            notFilter={notFilter}
+            filterByCategory={filterByCategory}
+          />
           <br />
-          <h2 className="text-center body-menu" > Nuestro menú: </h2>
+          <h2 className="text-center body-menu"> Nuestro menú: </h2>
           <br></br>
           <Row className="rowPersonalized">
             {items?.map((item) => {
@@ -64,8 +73,18 @@ const Body = () => {
                     <Card.Title className="item-name">{item.title}</Card.Title>
                     <p className="text-dark item-text">{item.description}</p>
                     <p className="text-dark">${item.price}</p>
-                    <Button className="cardButton" onClick={() => addItemToCart(item)}>Agregar</Button>
-                    
+                    {isLogin == null ? (
+                      <Button className="cardButton" href="/login">
+                        Agregar
+                      </Button>
+                    ) : (
+                      <Button
+                        className="cardButton"
+                        onClick={() => addItemToCart(item)}
+                      >
+                        Agregar
+                      </Button>
+                    )}
                   </Card>
                   <br />
                 </Col>
