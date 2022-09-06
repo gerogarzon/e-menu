@@ -15,9 +15,6 @@ import {CartProvider} from './context/CartContext'
 
 function App() {
 
-  const isAdmin = JSON.parse(localStorage.getItem("userToken"))
-  const isAdminRole = isAdmin.role;
-  console.log("ggg",isAdminRole)
 
   return (
     <>
@@ -28,12 +25,12 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/admin" element={(isAdminRole === "ADMIN_ROLE") ? (<Admin/>):(<Navigate to="/" />)} />
-          <Route path="/adminUsers" element={(isAdminRole === "ADMIN_ROLE") ? (<Users/>):(<Navigate to="/" />)}  />
-          <Route path="/adminProducts" element={(isAdminRole === "ADMIN_ROLE") ? (<Products />):(<Navigate to="/" />)} />
-          <Route path="/adminOrders" element={(isAdminRole === "ADMIN_ROLE") ? (<Orders/>):(<Navigate to="/" />)} />
           <Route path="/sobreNosotros" element={<SobreNosotros />} />    
           <Route path="/Error404" element={<Error404 />} />         
+          <Route path="/admin" element={<Admin/>} />
+          <Route path="/adminUsers" element={<Users/>}  />
+          <Route path="/adminProducts" element={<Products />} />
+          <Route path="/adminOrders" element={<Orders/>} />
         </Routes>
       </BrowserRouter>
       
