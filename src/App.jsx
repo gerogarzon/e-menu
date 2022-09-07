@@ -1,6 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Main from "./components/main/Main";
 import Admin from "./components/admin/Admin";
 import Users from "./components/admin/Users/Users";
@@ -17,6 +17,9 @@ import { CartProvider } from "./context/CartContext";
 // import PrivateRoutes from "./routes/PrivateRoutes";
 
 function App() {
+
+  const userRole = JSON.parse(localStorage.getItem("userRole"));
+
   return (
     <>
       <CartProvider>
@@ -27,10 +30,10 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/sobreNosotros" element={<SobreNosotros />} />
             <Route path="/Error404" element={<Error404 />} />
-            <Route path="/admin" element={<Admin />} />
-            <Route path="/adminUsers" element={<Users />} />
-            <Route path="/adminProducts" element={<Products />} />
-            <Route path="/adminOrders" element={<Orders />} />
+            <Route path="/admin" element={userRole=== "ADMIN_ROLE" ? (<Admin />):(<Navigate to="/"/>)} />
+            <Route path="/adminUsers" element={userRole=== "ADMIN_ROLE" ? (<Users />):(<Navigate to="/"/>)}/>
+            <Route path="/adminProducts" element={userRole=== "ADMIN_ROLE" ? (<Products />):(<Navigate to="/"/>)} />
+            <Route path="/adminOrders" element={userRole=== "ADMIN_ROLE" ? (<Orders />):(<Navigate to="/"/>)}/>
           </Routes>
         </BrowserRouter>
       </CartProvider>

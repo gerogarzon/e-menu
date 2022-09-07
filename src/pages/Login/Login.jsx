@@ -27,6 +27,7 @@ export const Login = () => {
       localStorage.setItem("currentUser", JSON.stringify(login.data.user));
       localStorage.setItem("isAdmin", JSON.stringify(login.data.user.role));
       const current = JSON.parse(localStorage.getItem("currentUser"));
+      localStorage.setItem("userRole", JSON.stringify(current.role));
 
       Swal.fire({
         position: "center",

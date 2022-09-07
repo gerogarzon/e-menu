@@ -7,36 +7,36 @@ const URL = process.env.REACT_APP_URL;
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-
   /* Creamos un estado para el carrito */
   const [cartItems, setCartItems] = useState([]);
-  
-
-  
 
   const getProductsCart = async () => {
     return await axios
       .get(`${URL}/api/menusCart`)
       .then(({ data }) => setCartItems(data.menusCart))
-      .catch((error) => console.error(error));     
+      .catch((error) => console.error(error));
   };
 
-  useEffect(() => {  
+  useEffect(() => {
     getProductsCart();
   }, []);
 
   const addItemToCart = async (product) => {
     const { title, picture, price } = product;
-     await axios.post(`${URL}/api/menusCart`, {
-      title,
-      picture,
-      price,
-    }).then(Swal.fire({
-      title: "Agregado!",
-      icon: "success",
-      showConfirmButton: false,
-      timer: 600,}
-    )); 
+    await axios
+      .post(`${URL}/api/menusCart`, {
+        title,
+        picture,
+        price,
+      })
+      .then(
+        Swal.fire({
+          title: "Agregado!",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 600,
+        })
+      );
     getProductsCart();
   };
 
@@ -51,7 +51,7 @@ export const CartProvider = ({ children }) => {
           amount,
         })
         .then(({ data }) => console.log(data));
-    }    
+    }
     getProductsCart();
   };
 
@@ -59,11 +59,14 @@ export const CartProvider = ({ children }) => {
     setCartItems(0);
     localStorage.removeItem("currentUser");
     localStorage.removeItem("isAdmin");
+    const userRole = JSON.parse(localStorage.getItem("userRole"));
+    if (userRole === "ADMIN_ROLE") {
+      localStorage.removeItem("userRole");
+    }
     getProductsCart();
-  }
+  };
 
   return (
-    
     /* Envolvemos el children con el provider y le pasamos un objeto con las propiedades
      que necesitamos por value */
     <CartContext.Provider
