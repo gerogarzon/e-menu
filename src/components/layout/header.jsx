@@ -8,8 +8,7 @@ const Header = () => {
   /* Traemos del local storage el current user */
   let current = JSON.parse(localStorage.getItem("currentUser"));
   let isAdmin = JSON.parse(localStorage.getItem("isAdmin"));
-  console.log("header", current);
-  console.log("header2", isAdmin);
+  
   
 
   return (
@@ -20,7 +19,7 @@ const Header = () => {
             <Image className="logo m-0" src={Logo}  />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse dark id="navbarScroll">
+          <Navbar.Collapse id="navbarScroll">
             <Nav
               className="me-auto "
               style={{ maxHeight: "100px" }}

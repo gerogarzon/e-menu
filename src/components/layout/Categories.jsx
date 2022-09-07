@@ -14,7 +14,7 @@ const Categories = ({ filterByCategory, notFilter }) => {
 
   return (
     <>
-      <Container clasName="categoriesMainContainer">
+      <Container className="categoriesMainContainer">
         <br />
 
         <Row className="rowPersonalized">

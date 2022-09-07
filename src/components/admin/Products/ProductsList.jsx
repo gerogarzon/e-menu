@@ -110,7 +110,7 @@ const ProductsList = () => {
                 </List.Item>
               </Col>
               <Col>
-                <Row clasName="actions-Flexcontainer">
+                <Row className="actions-Flexcontainer">
                   <Col className="actions-Flexitems">
                     <Button
                       style={{ maxWidth: "53px", minHeight: "38px" }}
