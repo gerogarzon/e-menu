@@ -1,7 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Nav } from "react-bootstrap";
 import CartContext from "../../context/CartContext";
-import axios from "axios";
+
 
 
 const Logout = () => {

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import axiosInstance from "../../util/axiosInstance";
+import axios from "axios";
 import "../../admin/AdminStyles.css";
 const URL = process.env.REACT_APP_URL;
 
@@ -27,7 +27,7 @@ const ProductsAdd = () => {
 
   const onSubmit = async (data) => {
     try {
-      await axiosInstance.post("/menu/", data);
+      await axios.post(`${URL}/api/menu/`, data);
       Swal.fire({
         title: "Product submitted",
         text: "You just submitted a product",

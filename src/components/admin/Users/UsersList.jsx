@@ -4,7 +4,7 @@ import { DeleteOutlined } from "@ant-design/icons";
 import { useState, useEffect } from "react";
 import "../../admin/AdminStyles.css";
 import { Row, Col } from "react-bootstrap";
-import axiosInstance from "../../util/axiosInstance";
+import axios from "axios";
 import Swal from "sweetalert2";
 import UsersAddEditButton from "./UsersAddEditButton";
 const URL = process.env.REACT_APP_URL;
@@ -30,7 +30,7 @@ const UsersList = () => {
       confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        await axiosInstance.delete(`/api/user/${_id}`);
+        await axios.delete(`${URL}/api/user/${_id}`);
         getUser();
 
         Swal.fire({

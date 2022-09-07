@@ -10,6 +10,8 @@ const Header = () => {
   let isAdmin = JSON.parse(localStorage.getItem("isAdmin"));
   console.log("header", current);
   console.log("header2", isAdmin);
+  
+
   return (
     <>
       <Navbar className="personalizedNavbar m-0 p-0" expand="lg">

@@ -3,7 +3,7 @@ import { List, Divider, Button } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
 import "../../admin/AdminStyles.css";
 import Swal from "sweetalert2";
-import axiosInstance from "../../util/axiosInstance";
+import axios from 'axios';
 import {Row, Col} from "react-bootstrap";
 import ProductsAddEditButton from "./ProductsAddEditButton";
 const URL = process.env.REACT_APP_URL;
@@ -31,7 +31,7 @@ const ProductsList = () => {
       confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        await axiosInstance.delete(`/api/menu/${_id}`);
+        await axios.delete(`${URL}/api/menu/${_id}`);
         getProduct();
         Swal.fire({
           title: "Deleted!",
