@@ -6,6 +6,7 @@
     align-items: center;
     flex-wrap: wrap;
     padding:15px;
+    height: 90vh;
 }
 .register-container{
     flex-basis: 720px;

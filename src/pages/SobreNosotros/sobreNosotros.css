@@ -16,6 +16,13 @@
 .card-imagen{  
     border-radius: 20px; 
     box-shadow: 0 0 9px 2px #dddcdc;
+    height: 270px;
+    object-fit: cover;
+}
+.card-footer{
+    flex-grow: unset;
+    background-color: #ffffff;
+    box-shadow: 0 0 9px 2px #fdf9f9
 }
 .cardLink{
 color: #47b63a;

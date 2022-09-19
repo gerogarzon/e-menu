@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faGithub}  from "@fortawesome/free-brands-svg-icons";
+import {faGithub, faInstagram, faFacebook, faTwitter}  from "@fortawesome/free-brands-svg-icons";
 
 import "./styles.css";
 const Footer = () => {
@@ -10,15 +10,15 @@ const Footer = () => {
         <footer>
           <div className="social">
             <a href="https://github.com/gerogarzon/e-menu" target="_blank" rel="noreferrer"> 
-            <FontAwesomeIcon icon={faGithub} />
+            <FontAwesomeIcon icon={faInstagram} />
             </a>
-            <a href="https://github.com/gerogarzon/e-menu" target="_blank" rel="noreferrer"> 
-            <FontAwesomeIcon icon={faGithub} />
+            <a href="/Error404" target="_blank" rel="noreferrer"> 
+            <FontAwesomeIcon icon={faFacebook} />
             </a>
-            <a href="https://github.com/gerogarzon/e-menu" target="_blank" rel="noreferrer"> 
-            <FontAwesomeIcon icon={faGithub} />
+            <a href="/Error404" target="_blank" rel="noreferrer"> 
+            <FontAwesomeIcon icon={faTwitter} />
             </a>
-            <a href="https://github.com/gerogarzon/e-menu" target="_blank" rel="noreferrer"> 
+            <a href="/Error404" target="_blank" rel="noreferrer"> 
             <FontAwesomeIcon icon={faGithub} />
             </a>
           </div>
@@ -34,11 +34,11 @@ const Footer = () => {
             </li>
           </ul>
         </footer>
-      </div>
       <div className="copyright-container">
         <p className="copyright">
           e-menu © 2022 | Developed by Geronimo Garzon & Ivan Roldan C20I- Rolling Code
         </p>
+      </div>
       </div>
     </>
   );

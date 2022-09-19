@@ -56,7 +56,7 @@ const Body = () => {
           <Row className="rowPersonalized">
             {items?.map((item) => {
               return (
-                <Col key={item._id} md="3" xs>
+                <Col key={item._id} lg="3" md="6" xs="12">
                   <Card
                     key={item._id}
                     border="#edeef2"

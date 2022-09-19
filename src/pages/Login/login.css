@@ -4,7 +4,7 @@
   flex-direction: row;
   justify-content: center;
   align-content: center;
-  padding: 20px;
+  height: 90vh;
 }
 
 .main-left-item {

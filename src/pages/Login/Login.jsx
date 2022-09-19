@@ -19,40 +19,41 @@ export const Login = () => {
   const { register, handleSubmit } = useForm();
 
 
-  const onSubmit = async (loginData, event) => {
+  const onSubmit = async (loginData, event, error) => {
     try {
       const login = await axios.post(`${URL}/api/login`, loginData);
-      console.log(login)
       localStorage.setItem("userToken", JSON.stringify(login.data.token));
       localStorage.setItem("currentUser", JSON.stringify(login.data.user));
       localStorage.setItem("isAdmin", JSON.stringify(login.data.user.role));
       const current = JSON.parse(localStorage.getItem("currentUser"));
       localStorage.setItem("userRole", JSON.stringify(current.role));
 
-      Swal.fire({
+      await Swal.fire({
         position: "center",
         icon: "success",
         title: `Bienvenido ${login.data.user.fullname}`,
         showConfirmButton: false,
-        timer: 1500,
+        timer: 1000,
       });
-    
+      
       if (current.role === "ADMIN_ROLE") {
         window.location.assign(`https://e-menu-rc.netlify.app/admin`);
       } else {
         window.location.assign(`https://e-menu-rc.netlify.app/`);
       }
     } catch (error) {
+      console.log(error.response.data.msg)
       setErrorMsg(error.response.data.msg);
       showLoginError(true);
       setTimeout(() => showLoginError(false), 2000);
-      Swal.fire({
+      await Swal.fire({
         position: "center",
         icon: "error",
-        title: `${error}`,
+        title: JSON.stringify(`${error.response.data.msg}`),
         showConfirmButton: false,
-        timer: 5500,
+        timer: 1500,
       });
+      event.target.reset()
     }
   };
   return (
