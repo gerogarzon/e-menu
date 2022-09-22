@@ -24,13 +24,13 @@ const Footer = () => {
           </div >
           <ul className="list-inline py-2">
             <li className="list-inline-item">
-              <a href="/">Inico</a>
+              <a href="/">Inicio</a>
             </li>
             <li className="list-inline-item">
               <a href="/sobreNosotros">Sobre nosotros</a>
             </li>
             <li className="list-inline-item">
-              <a href="#">Privacy Policy</a> 
+              <a href="/Error404">Privacy Policy</a> 
             </li>
           </ul>
       <div className="copyright-container text-center w-auto py-2">
