@@ -174,7 +174,7 @@
 
 /* ---------------------Footer--------------------- */
 .footer-basic {
-  padding: 1vh 0;
+  padding: 1.5vh 0;
   background-color: #DFFFBF;
   color: #000000;
 }
@@ -207,7 +207,7 @@
 
 .footer-basic .social {
   text-align: center;
-  padding-bottom: 25px;
+  padding-bottom: 8px;
 }
 
 .footer-basic .social > a {

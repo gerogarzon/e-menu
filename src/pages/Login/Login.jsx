@@ -60,7 +60,7 @@ export const Login = () => {
     <>
       <Header />
       <div className="login-manin-container">
-        <div className="main-left-item">
+        <div className="main-left-item d-none d-lg-block">
           <h1 className="main-left-item-content">
             ¡Bienvenido!
             <br />
@@ -68,9 +68,9 @@ export const Login = () => {
             ¡Bom apetit!
           </h1>
         </div>
-        <div className="main-right-item">
+        <div className="main-right-item mx-2">
           <Form className="login-form" onSubmit={handleSubmit(onSubmit)}>
-            <h1 className="login-form-items">Ingrese su cuenta</h1>
+            <h1 className="login-form-items w-auto ">Ingrese su cuenta</h1>
             <Form.Group className="login-form-items" controlId="Email">
               <Form.Label>Email</Form.Label>
               <Form.Control
