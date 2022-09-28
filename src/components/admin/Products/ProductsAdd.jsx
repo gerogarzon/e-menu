@@ -6,7 +6,6 @@ import axios from "axios";
 import "../../admin/AdminStyles.css";
 const URL = process.env.REACT_APP_URL;
 
-
 const ProductsAdd = () => {
   // modal from react boostrap
 
@@ -43,17 +42,15 @@ const ProductsAdd = () => {
   };
 
   const [category, setCategory] = useState([]);
-  
+
   const getSelectCategories = async () => {
     await fetch(`${URL}/api/categories`)
-    .then((response) => response.json())
-    .then((data) => setCategory(data.categoriesDB));
-   
-  }
-  // console.log(category)
-  
+      .then((response) => response.json())
+      .then((data) => setCategory(data.categoriesDB));
+  };
+
   useEffect(() => {
-    getSelectCategories();   
+    getSelectCategories();
   }, []);
 
   return (
@@ -71,6 +68,7 @@ const ProductsAdd = () => {
           <Modal.Title>Add Menú</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          
           {/* adding form from reactbootstrap */}
 
           <Form
@@ -107,12 +105,8 @@ const ProductsAdd = () => {
                 id="disabledSelect"
               >
                 {category?.map((category, key) => {
-                   //console.log("here:",category.name)
-                  return (
-                   
-                      <option key={key}>{category.name}</option>
-                    
-                  );
+                  //console.log("here:",category.name)
+                  return <option key={key}>{category.name}</option>;
                 })}
               </Form.Select>
             </Form.Group>

@@ -14,7 +14,6 @@ const Body = () => {
 
   /* guardo en una variable el current user de la localstorage */
   const isLogin = JSON.parse(localStorage.getItem("currentUser"));
-  
 
   useEffect(() => {
     fetch(`${URL}/api/menus`)
@@ -32,7 +31,7 @@ const Body = () => {
     setItems(filteredItems);
   };
 
-  const notFilter = ()=> {
+  const notFilter = () => {
     setItems(origin);
   };
 

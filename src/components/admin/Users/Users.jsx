@@ -1,33 +1,28 @@
-import React from 'react'
-import { Layout} from "antd";
+import React from "react";
+import { Layout } from "antd";
 import Adminheader from "../AdminLayout/AdminHeader";
 import Aside from "../AdminLayout/Aside";
-import UsersList from './UsersList';
-import UsersAdd from './UsersAdd';
+import UsersList from "./UsersList";
+import UsersAdd from "./UsersAdd";
 const { Sider, Content } = Layout;
-
 
 const Users = () => {
   return (
     <>
-
-  <Layout className="adminBackground">
+      <Layout className="adminBackground">
         <Adminheader />
-
         <Layout>
           <Sider>
             <Aside />
           </Sider>
           <Content>
-          <UsersAdd/>
-          <UsersList/>
+            <UsersAdd />
+            <UsersList />
           </Content>
         </Layout>
       </Layout>
-
-
     </>
-  )
-}
+  );
+};
 
-export default Users
+export default Users;

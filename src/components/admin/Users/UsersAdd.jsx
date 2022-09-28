@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
@@ -12,7 +12,7 @@ const UsersAdd = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const [form,setForm]= useState(null);
+  const [form, setForm] = useState(null);
 
   // Form from react hookform
 
@@ -25,7 +25,7 @@ const UsersAdd = () => {
 
   useEffect(() => {
     setForm("");
-  }, [])
+  }, []);
   useEffect(() => {
     reset(form);
   });
@@ -45,10 +45,7 @@ const UsersAdd = () => {
     } catch (error) {
       console.log(error);
     }
-
-   
   };
-  
 
   return (
     <div className="AddButton">
@@ -65,14 +62,12 @@ const UsersAdd = () => {
           <Modal.Title>Add User</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-
-
           {/* adding form from reactbootstrap */}
 
-
-          <Form onSubmit={handleSubmit(onSubmit)}
-           onChange={(event) => setShow(event.target.value)}>
-
+          <Form
+            onSubmit={handleSubmit(onSubmit)}
+            onChange={(event) => setShow(event.target.value)}
+          >
             <Form.Group className="mb-3">
               <Form.Label>Full Name</Form.Label>
               <Form.Control
@@ -89,7 +84,7 @@ const UsersAdd = () => {
                 type="email"
                 name="email"
                 placeholder="Enter Email"
-                {...register("email", { required: true,maxLength: 50 })}
+                {...register("email", { required: true, maxLength: 50 })}
               />
             </Form.Group>
 
@@ -106,11 +101,12 @@ const UsersAdd = () => {
             <Form.Group className="mb-3">
               <Form.Label>Role</Form.Label>
               <Form.Select
-               type="text"
-               name="role"
-               placeholder="Enter Role"
-               {...register("role", { required: true })}
-                id="disabledSelect" >
+                type="text"
+                name="role"
+                placeholder="Enter Role"
+                {...register("role", { required: true })}
+                id="disabledSelect"
+              >
                 <option>ADMIN_ROLE</option>
                 <option>CLIENT_ROLE</option>
               </Form.Select>

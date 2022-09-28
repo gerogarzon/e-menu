@@ -1,9 +1,8 @@
 .personalizedNavbar {
-  background-color: #DFFFBF !important;
+  background-color: #dfffbf !important;
   color: rgb(0, 0, 0) !important;
   font-size: 20px;
   width: 100vw !important;
- 
 }
 .logo {
   height: 59px;
@@ -31,7 +30,6 @@
 
 .rowPersonalized {
   text-align: center;
-  
 }
 .footerPersonalized {
   color: white;
@@ -55,7 +53,7 @@
   box-shadow: 0 0 9px 2px #dddcdc;
   margin: 0;
 }
-.cardButton{
+.cardButton {
   border-radius: 12px;
   border: none;
   cursor: pointer;
@@ -63,29 +61,25 @@
   margin: 15px;
   background-color: #bdea93;
   color: black;
-  
 }
-.cardButton:hover{
+.cardButton:hover {
   background-color: #30ad23;
-  
 }
-.cardButton:focus{
+.cardButton:focus {
   background-color: #30ad23;
   box-shadow: none;
 }
-
 
 .body-menu {
   color: #30ad23;
 }
 /* --------------------------------------------- */
 .banner-img {
-
   background-size: cover;
   background-repeat: no-repeat;
   object-fit: cover;
   width: 100%;
-  margin-top:0;
+  margin-top: 0;
 }
 /* ------------------------------------------- */
 .group-count {
@@ -108,7 +102,7 @@
 .item-image {
   border-radius: 12px;
   height: 200px;
-  object-fit: cover!important;
+  object-fit: cover !important;
   width: auto;
 }
 .category-item {
@@ -132,18 +126,18 @@
 }
 /* -------------Categories-------------------- */
 
-.categoriesMainContainer{
+.categoriesMainContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
 }
-.categoriesCol{
+.categoriesCol {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
-  margin-bottom:15px;
+  margin-bottom: 15px;
 }
 .card-categories {
   align-items: center;
@@ -171,7 +165,6 @@
   margin: 2px;
 }
 
-
 /* ---------------------Footer--------------------- */
 .footer-basic {
   padding: 30px 0;
@@ -186,10 +179,9 @@
   font-size: 18px;
   line-height: 1.6;
   margin-bottom: 0;
-  background-color: #DFFFBF!important;
-  color:#000;
+  background-color: #dfffbf !important;
+  color: #000;
 }
-
 
 .footer-basic li {
   padding: 0 10px;
@@ -229,8 +221,8 @@
 }
 
 .copyright-container {
-  background-color: #DFFFBF;
-  display:flex;
+  background-color: #dfffbf;
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
@@ -238,7 +230,7 @@
   margin-bottom: 0;
   height: 50px;
 }
-.copyright{
+.copyright {
   align-self: center;
-  padding-left:30px;
+  padding-left: 30px;
 }

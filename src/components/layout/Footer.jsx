@@ -30,7 +30,7 @@ const Footer = () => {
               <a href="/sobreNosotros">Sobre nosotros</a>
             </li>
             <li className="list-inline-item">
-              <a href="#">Privacy Policy</a> 
+              <a href="/error404">Privacy Policy</a> 
             </li>
           </ul>
         </footer>

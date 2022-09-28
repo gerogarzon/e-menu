@@ -32,7 +32,9 @@ export const Register = () => {
         <Container className="register-container">
           <Form className="register-form" onSubmit={handleSubmit(onSubmit)}>
             <Form.Group className=" register-form-items">
-              <Form.Label className="register-form-label">Nombre Completo</Form.Label>
+              <Form.Label className="register-form-label">
+                Nombre Completo
+              </Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Ingrese un nombre de usuario"
@@ -55,13 +57,14 @@ export const Register = () => {
               />
             </Form.Group>
             <Form.Group className="register-form-items" controlId="Password">
-              <Form.Label className="register-form-label">Contraseña</Form.Label>
+              <Form.Label className="register-form-label">
+                Contraseña
+              </Form.Label>
               <Form.Control
                 type="password"
                 placeholder="Registre su contraseña"
                 {...register("password", {
                   required: true,
-                  pattern: /^[A-Za-z]+$/i,
                 })}
               />
             </Form.Group>

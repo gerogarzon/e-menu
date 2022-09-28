@@ -12,17 +12,13 @@ import { Link } from "react-router-dom";
 const URL = process.env.REACT_APP_URL;
 
 export const Login = () => {
-
-
   const [loginError, showLoginError] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const { register, handleSubmit } = useForm();
 
-
-  const onSubmit = async (loginData, event) => {
+  const onSubmit = async (loginData) => {
     try {
       const login = await axios.post(`${URL}/api/login`, loginData);
-      console.log(login)
       localStorage.setItem("userToken", JSON.stringify(login.data.token));
       localStorage.setItem("currentUser", JSON.stringify(login.data.user));
       localStorage.setItem("isAdmin", JSON.stringify(login.data.user.role));
@@ -36,7 +32,7 @@ export const Login = () => {
         showConfirmButton: false,
         timer: 1500,
       });
-    
+
       if (current.role === "ADMIN_ROLE") {
         window.location.assign(`https://e-menu-rc.netlify.app/admin`);
       } else {
@@ -91,16 +87,17 @@ export const Login = () => {
                 placeholder="Password"
                 {...register("password", {
                   required: true,
-                  pattern: /^[A-Za-z]+$/i,
                 })}
               />
             </Form.Group>
-
             <div className="login-form-items">
-              <Button variant="secondary" className="login-btn-left" type="submit">
+              <Button
+                variant="secondary"
+                className="login-btn-left"
+                type="submit"
+              >
                 Ingresar
               </Button>
-
               <Button variant="light" className="login-btn-right">
                 <Link className="login-btn-link" to="/register" variant="">
                   Registrate

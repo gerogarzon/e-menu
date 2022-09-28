@@ -1,56 +1,52 @@
-section>aside {
-    background-color: #F8F9FA!important;
-    height: 100%;
+section > aside {
+  background-color: #f8f9fa !important;
+  height: 100%;
 }
-ul{
-    background-color: #F8F9FA!important; 
+ul {
+  background-color: #f8f9fa !important;
 }
 main {
-    background-color:white!important; 
+  background-color: white !important;
 }
 
 /* Product List */
 
-.ProductListItem{
-    display: inline-block;
-    margin-left: 30px;
+.ProductListItem {
+  display: inline-block;
+  margin-left: 30px;
 }
 .ant-layout {
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 .productListTitles {
-    margin-left: 46px;
-    
+  margin-left: 46px;
 }
-.actions-FlexItems-btn{
-    margin-right:15px;
-    border-radius: 5px!important;
+.actions-FlexItems-btn {
+  margin-right: 15px;
+  border-radius: 5px !important;
 }
-
 
 /* styles for add menu button in productAdd */
 
 .AddButton {
-
-text-align: right!important;
-margin-right:100px!important;
-margin-top: 10px!important;
+  text-align: right !important;
+  margin-right: 100px !important;
+  margin-top: 10px !important;
 }
 .EditButton {
-    margin-right: 0px;
-    padding: 0px;
-
+  margin-right: 0px;
+  padding: 0px;
 }
 
 /* aside styles */
 
-.ant-menu-light .ant-menu-item-active{
-    color:black!important;
-    padding: 30px;
+.ant-menu-light .ant-menu-item-active {
+  color: black !important;
+  padding: 30px;
 }
-.ant-layout.ant-layout-has-sider{
-    background-color: #F8F9FA!important;
+.ant-layout.ant-layout-has-sider {
+  background-color: #f8f9fa !important;
 }
 li {
-    padding-left: 20px!important;
+  padding-left: 20px !important;
 }

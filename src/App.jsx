@@ -12,9 +12,7 @@ import SobreNosotros from "./pages/SobreNosotros/SobreNosotros";
 import Orders from "./components/admin/Orders/Orders";
 import Error404 from "./pages/404/Error404";
 import { CartProvider } from "./context/CartContext";
-// import { AuthProvider } from "./context/AuthContext";
-// import PublicRoutes from "./routes/PublicRoutes";
-// import PrivateRoutes from "./routes/PrivateRoutes";
+
 
 function App() {
 

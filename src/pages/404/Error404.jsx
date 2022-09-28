@@ -10,10 +10,13 @@ const Error404 = () => {
       <Container className="mainContainer404" fluid>
         <Header />
         <div className="error-container">
-          
-          <img className="error-item" src="https://st4.depositphotos.com/15951226/20148/v/380/depositphotos_201487234-stock-illustration-flat-line-icon-concept-of.jpg?forcejpeg=true"></img>
+          <img
+            className="error-item"
+            src="https://st4.depositphotos.com/15951226/20148/v/380/depositphotos_201487234-stock-illustration-flat-line-icon-concept-of.jpg?forcejpeg=true"
+            alt="error404"
+          ></img>
         </div>
-        <Footer className="error-footer"/>
+        <Footer className="error-footer" />
       </Container>
     </>
   );

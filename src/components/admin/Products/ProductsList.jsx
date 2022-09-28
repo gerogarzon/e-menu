@@ -3,16 +3,13 @@ import { List, Divider, Button } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
 import "../../admin/AdminStyles.css";
 import Swal from "sweetalert2";
-import axios from 'axios';
-import {Row, Col} from "react-bootstrap";
+import axios from "axios";
+import { Row, Col } from "react-bootstrap";
 import ProductsAddEditButton from "./ProductsAddEditButton";
 const URL = process.env.REACT_APP_URL;
 
-
 const ProductsList = () => {
-
   const [items, setItems] = useState([]);
-
 
   const getProduct = async () => {
     await fetch(`${URL}/api/menus`)

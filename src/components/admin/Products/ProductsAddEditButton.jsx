@@ -25,8 +25,6 @@ const ProductsAddEditButton = (props) => {
 
   // Postea en la DB la info cargada en el formulario
   const onSubmit = async (data) => {
-    console.log("edit:", data);
-    console.log("editID:", props.props._id);
 
     try {
       await axios.put(

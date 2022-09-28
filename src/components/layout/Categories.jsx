@@ -16,7 +16,6 @@ const Categories = ({ filterByCategory, notFilter }) => {
     <>
       <Container className="categoriesMainContainer">
         <br />
-
         <Row className="rowPersonalized">
           {category?.map((categories) => {
             return (
@@ -46,7 +45,6 @@ const Categories = ({ filterByCategory, notFilter }) => {
               </Col>
             );
           })}
-
           <Col className="categoriesCol">
             <Card
               onClick={() => notFilter()}

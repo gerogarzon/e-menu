@@ -18,9 +18,3 @@ root.render(
 reportWebVitals();
 
 
-// "dev": "react-scripts start",
-// "build": "react-scripts build",
-// "test": "react-scripts test",
-// "eject": "react-scripts eject",
-// "start": "serve -s build",
-// "heroku-postbuild": "npm run build"

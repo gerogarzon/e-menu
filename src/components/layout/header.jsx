@@ -8,15 +8,13 @@ const Header = () => {
   /* Traemos del local storage el current user */
   let current = JSON.parse(localStorage.getItem("currentUser"));
   let isAdmin = JSON.parse(localStorage.getItem("isAdmin"));
-  
-  
 
   return (
     <>
       <Navbar className="personalizedNavbar m-0 p-0" expand="lg">
         <Container fluid>
           <Navbar.Brand href="/" className="m-0 emenuLogo">
-            <Image className="logo m-0" src={Logo}  />
+            <Image className="logo m-0" src={Logo} />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
@@ -27,16 +25,12 @@ const Header = () => {
             >
               {isAdmin === "ADMIN_ROLE" ? (
                 <>
-                 
                   <Nav.Link className="navbarColor" href="/">
                     Inicio
                   </Nav.Link>
-                 
-
                   <Nav.Link className="navbarColor" href="/sobreNosotros">
                     Sobre Nosotros
                   </Nav.Link>
-
                   <Nav.Link className="navbarColor" href="/admin">
                     Admin
                   </Nav.Link>
@@ -46,7 +40,6 @@ const Header = () => {
                   <Nav.Link className="navbarColor" href="/">
                     Inicio
                   </Nav.Link>
-                  
                   <Nav.Link className="navbarColor" href="/sobreNosotros">
                     Sobre Nosotros
                   </Nav.Link>

@@ -10,7 +10,6 @@ import UsersAddEditButton from "./UsersAddEditButton";
 const URL = process.env.REACT_APP_URL;
 
 const UsersList = () => {
-
   const [users, setUsers] = useState([]);
 
   const getUser = async () => {
@@ -32,7 +31,6 @@ const UsersList = () => {
       if (result.isConfirmed) {
         await axios.delete(`${URL}/api/user/${_id}`);
         getUser();
-
         Swal.fire({
           title: "Deleted!",
           text: "Your file has been deleted.",
@@ -78,19 +76,16 @@ const UsersList = () => {
                   {userItem.fullname}
                 </List.Item>
               </Col>
-
               <Col>
                 <List.Item className="ProductListItem">
                   {userItem.email}
                 </List.Item>
               </Col>
-
               <Col>
                 <List.Item className="ProductListItem">
                   {userItem.role}
                 </List.Item>
               </Col>
-
               <Col>
                 <Row>
                   <Col>
@@ -98,7 +93,11 @@ const UsersList = () => {
                       className="m-2"
                       type="danger"
                       onClick={() => deleteUser(userItem._id)}
-                      style={{minHeight:"40px", minWidth:"50px", borderRadius:"5px"}}
+                      style={{
+                        minHeight: "40px",
+                        minWidth: "50px",
+                        borderRadius: "5px",
+                      }}
                     >
                       <DeleteOutlined />
                     </Button>
@@ -108,7 +107,6 @@ const UsersList = () => {
                   </Col>
                 </Row>
               </Col>
-
               <Divider orientation="left"></Divider>
             </Row>
           </>
