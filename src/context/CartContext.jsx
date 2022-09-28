@@ -42,10 +42,22 @@ export const CartProvider = ({ children }) => {
 
   const editItemToCart = async (menuId, query, amount) => {
     if (query === "del" && amount === 1) {
+      Swal.fire({
+        title: "Eliminado!",
+        icon: "error",
+        showConfirmButton: false,
+        timer: 400,
+      })
       await axios
         .delete(`${URL}/api/menusCart/${menuId}`)
-        .then(({ data }) => console.log(data));
+        .then(({ data }) =>console.log(data));
     } else {
+      Swal.fire({
+        title: "Ok!",
+        icon: "success",
+        showConfirmButton: false,
+        timer: 400,
+      })
       await axios
         .put(`${URL}/api/menusCart/${menuId}?query=${query}`, {
           amount,

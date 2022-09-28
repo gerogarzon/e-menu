@@ -16,7 +16,8 @@ export const Login = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const { register, handleSubmit } = useForm();
 
-  const onSubmit = async (loginData) => {
+
+  const onSubmit = async (loginData, event, error) => {
     try {
       const login = await axios.post(`${URL}/api/login`, loginData);
       localStorage.setItem("userToken", JSON.stringify(login.data.token));
@@ -25,37 +26,39 @@ export const Login = () => {
       const current = JSON.parse(localStorage.getItem("currentUser"));
       localStorage.setItem("userRole", JSON.stringify(current.role));
 
-      Swal.fire({
+      await Swal.fire({
         position: "center",
         icon: "success",
         title: `Bienvenido ${login.data.user.fullname}`,
         showConfirmButton: false,
-        timer: 1500,
+        timer: 1000,
       });
-
+      
       if (current.role === "ADMIN_ROLE") {
         window.location.assign(`https://e-menu-rc.netlify.app/admin`);
       } else {
         window.location.assign(`https://e-menu-rc.netlify.app/`);
       }
     } catch (error) {
+      console.log(error.response.data.msg)
       setErrorMsg(error.response.data.msg);
       showLoginError(true);
       setTimeout(() => showLoginError(false), 2000);
-      Swal.fire({
+      await Swal.fire({
         position: "center",
         icon: "error",
-        title: `${error}`,
+        title: JSON.stringify(`${error.response.data.msg}`),
         showConfirmButton: false,
-        timer: 5500,
+        timer: 1500,
       });
+      event.target.reset()
     }
   };
   return (
     <>
       <Header />
       <div className="login-manin-container">
-        <div className="main-left-item">
+        <div className="main-left-item d-none d-lg-block">
           <h1 className="main-left-item-content">
             ¡Bienvenido!
             <br />
@@ -63,9 +66,9 @@ export const Login = () => {
             ¡Bom apetit!
           </h1>
         </div>
-        <div className="main-right-item">
+        <div className="main-right-item mx-2">
           <Form className="login-form" onSubmit={handleSubmit(onSubmit)}>
-            <h1 className="login-form-items">Ingrese su cuenta</h1>
+            <h1 className="login-form-items w-auto ">Ingrese su cuenta</h1>
             <Form.Group className="login-form-items" controlId="Email">
               <Form.Label>Email</Form.Label>
               <Form.Control

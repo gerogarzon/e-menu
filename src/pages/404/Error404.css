@@ -6,12 +6,13 @@
 }
 
 .error-container {
-  background-image: url("../../resources/fondo.png");
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  flex-wrap: wrap;
+    background-image: url("../../resources/fondo.png");
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-content: center;
+    flex-wrap: wrap;
+    height: 80vh;
 }
 
 .error-item {

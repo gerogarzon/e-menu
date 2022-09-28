@@ -26,22 +26,10 @@ const SobreNosotros = () => {
               altura de la vanguardia mundial. Puedes contactarme con los links
               de abajo. Saludos!
             </Card.Text>
-          </Card.Body>
-          <Card.Body>
-            <Card.Link
-              className="cardLink"
-              href="https://www.linkedin.com/in/geronimo-garzon/"
-              target="_blank"
-            >
-              Linkedin
-            </Card.Link>
-            <Card.Link
-              className="cardLink"
-              href="https://github.com/gerogarzon"
-              target="_blank"
-            >
-              Github
-            </Card.Link>
+          </Card.Body>        
+          <Card.Body className="card-footer">
+            <Card.Link className="cardLink" href="https://www.linkedin.com/in/geronimo-garzon/" target="_blank">Linkedin</Card.Link>
+            <Card.Link className="cardLink"  href="https://github.com/gerogarzon" target="_blank">Github</Card.Link>
           </Card.Body>
         </Card>
 
@@ -63,22 +51,10 @@ const SobreNosotros = () => {
               en desarrollador Full Stack. Estoy buscando mi próxima oportunidad
               de trabajo.
             </Card.Text>
-          </Card.Body>
-          <Card.Body>
-            <Card.Link
-              className="cardLink"
-              href="https://www.linkedin.com/in/iv%C3%A1n-el%C3%ADas-rold%C3%A1n-130b72174/"
-              target="_blank"
-            >
-              Linkedin
-            </Card.Link>
-            <Card.Link
-              className="cardLink"
-              href="https://github.com/IERoldan"
-              target="_blank"
-            >
-              Github
-            </Card.Link>
+          </Card.Body>         
+          <Card.Body className="card-footer">
+            <Card.Link className="cardLink" href="https://www.linkedin.com/in/iv%C3%A1n-el%C3%ADas-rold%C3%A1n-130b72174/" target="_blank">Linkedin</Card.Link>
+            <Card.Link className="cardLink" href="https://github.com/IERoldan" target="_blank">Github</Card.Link>
           </Card.Body>
         </Card>
       </div>
