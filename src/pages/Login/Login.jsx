@@ -40,7 +40,6 @@ export const Login = () => {
         window.location.assign(`https://e-menu-rc.netlify.app/`);
       }
     } catch (error) {
-      console.log(error.response.data.msg)
       setErrorMsg(error.response.data.msg);
       showLoginError(true);
       setTimeout(() => showLoginError(false), 2000);

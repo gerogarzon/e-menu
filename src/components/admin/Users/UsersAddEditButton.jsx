@@ -31,7 +31,7 @@ const UsersAddEditButton = (props) => {
   });
 
   const onSubmit = async (data) => {
-    try {
+   
       await axios.put(`${URL}/api/user/${props.props._id}`, data);
       Swal.fire({
         title: "User edited",
@@ -42,9 +42,7 @@ const UsersAddEditButton = (props) => {
         timer: 1200,
       });
       setShow(false);
-    } catch (error) {
-      console.log(error);
-    }
+    
   };
 
   return (

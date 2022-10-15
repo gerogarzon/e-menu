@@ -31,7 +31,7 @@ const UsersAdd = () => {
   });
 
   const onSubmit = async (data) => {
-    try {
+   
       await axios.post(`${URL}/api/user/`, data);
       Swal.fire({
         title: "User submitted",
@@ -42,9 +42,7 @@ const UsersAdd = () => {
         timer: 1200,
       });
       setShow(false);
-    } catch (error) {
-      console.log(error);
-    }
+    
   };
 
   return (

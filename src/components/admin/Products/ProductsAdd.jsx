@@ -25,20 +25,16 @@ const ProductsAdd = () => {
   });
 
   const onSubmit = async (data) => {
-    try {
-      await axios.post(`${URL}/api/menu/`, data);
-      Swal.fire({
-        title: "Product submitted",
-        text: "You just submitted a product",
-        position: "center",
-        icon: "success",
-        showConfirmButton: true,
-        timer: 1200,
-      });
-      setShow(false);
-    } catch (error) {
-      console.log("post error:", error);
-    }
+    await axios.post(`${URL}/api/menu/`, data);
+    Swal.fire({
+      title: "Product submitted",
+      text: "You just submitted a product",
+      position: "center",
+      icon: "success",
+      showConfirmButton: true,
+      timer: 1200,
+    });
+    setShow(false);
   };
 
   const [category, setCategory] = useState([]);
@@ -68,9 +64,6 @@ const ProductsAdd = () => {
           <Modal.Title>Add Menú</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          
-          {/* adding form from reactbootstrap */}
-
           <Form
             onSubmit={handleSubmit(onSubmit)}
             onChange={(event) => setShow(event.target.value)}
@@ -105,7 +98,6 @@ const ProductsAdd = () => {
                 id="disabledSelect"
               >
                 {category?.map((category, key) => {
-                  //console.log("here:",category.name)
                   return <option key={key}>{category.name}</option>;
                 })}
               </Form.Select>

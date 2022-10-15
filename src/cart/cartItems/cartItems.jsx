@@ -8,6 +8,7 @@ export const ItemCart = ({ item }) => {
 
   /* Desestructuramos el item para sacar solo la id */
   const { amount } = item;
+  console.log(item)
 
   return (
     <div className="cartItem">

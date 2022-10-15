@@ -14,7 +14,6 @@ export const CartProvider = ({ children }) => {
     return await axios
       .get(`${URL}/api/menusCart`)
       .then(({ data }) => setCartItems(data.menusCart))
-      .catch((error) => console.error(error));
   };
 
   useEffect(() => {
@@ -50,7 +49,6 @@ export const CartProvider = ({ children }) => {
       })
       await axios
         .delete(`${URL}/api/menusCart/${menuId}`)
-        .then(({ data }) =>console.log(data));
     } else {
       Swal.fire({
         title: "Ok!",
@@ -62,7 +60,6 @@ export const CartProvider = ({ children }) => {
         .put(`${URL}/api/menusCart/${menuId}?query=${query}`, {
           amount,
         })
-        .then(({ data }) => console.log(data));
     }
     getProductsCart();
   };

@@ -7,7 +7,6 @@ import "../../admin/AdminStyles.css";
 const URL = process.env.REACT_APP_URL;
 
 const ProductsAddEditButton = (props) => {
-  
   // modal states
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -25,24 +24,16 @@ const ProductsAddEditButton = (props) => {
 
   // Postea en la DB la info cargada en el formulario
   const onSubmit = async (data) => {
-
-    try {
-      await axios.put(
-        `${URL}/api/menu/${props.props._id}`,
-        data
-      );
-      Swal.fire({
-        title: "Product edited",
-        text: "You just edit a product",
-        position: "center",
-        icon: "success",
-        showConfirmButton: true,
-        timer: 2000,
-      });
-      setShow(false);
-    } catch (error) {
-      console.log("post error:", error);
-    }
+    await axios.put(`${URL}/api/menu/${props.props._id}`, data);
+    Swal.fire({
+      title: "Product edited",
+      text: "You just edit a product",
+      position: "center",
+      icon: "success",
+      showConfirmButton: true,
+      timer: 2000,
+    });
+    setShow(false);
   };
 
   // Me traigo las categorias para renderizarlas en el select
@@ -71,8 +62,6 @@ const ProductsAddEditButton = (props) => {
           <Modal.Title>Edit Menú</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {/* adding form from reactbootstrap */}
-
           <Form
             onSubmit={handleSubmit(onSubmit)}
             onChange={(event) => setShow(event.target.value)}
@@ -110,7 +99,6 @@ const ProductsAddEditButton = (props) => {
                 id="disabledSelect"
               >
                 {category?.map((category, key) => {
-                  //console.log("here:",category.name)
                   return <option key={key}>{category.name}</option>;
                 })}
               </Form.Select>
