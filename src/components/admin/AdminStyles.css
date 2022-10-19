@@ -8,9 +8,6 @@ ul {
 main {
   background-color: white !important;
 }
-
-/* Product List */
-
 .ProductListItem {
   display: inline-block;
   margin-left: 30px;
@@ -25,9 +22,6 @@ main {
   margin-right: 15px;
   border-radius: 5px !important;
 }
-
-/* styles for add menu button in productAdd */
-
 .AddButton {
   text-align: right !important;
   margin-right: 100px !important;
@@ -37,8 +31,6 @@ main {
   margin-right: 0px;
   padding: 0px;
 }
-
-/* aside styles */
 
 .ant-menu-light .ant-menu-item-active {
   color: black !important;

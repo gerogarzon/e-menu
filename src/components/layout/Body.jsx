@@ -7,12 +7,10 @@ import CartContext from "../../context/CartContext";
 const URL = process.env.REACT_APP_URL;
 
 const Body = () => {
+  
   const [items, setItems] = useState([]);
   const [origin, setOrigin] = useState([]);
-
   const { addItemToCart } = useContext(CartContext);
-
-  /* guardo en una variable el current user de la localstorage */
   const isLogin = JSON.parse(localStorage.getItem("currentUser"));
 
   useEffect(() => {

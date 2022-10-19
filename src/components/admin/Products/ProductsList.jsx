@@ -9,6 +9,7 @@ import ProductsAddEditButton from "./ProductsAddEditButton";
 const URL = process.env.REACT_APP_URL;
 
 const ProductsList = () => {
+  
   const [items, setItems] = useState([]);
 
   const getProduct = async () => {
@@ -88,19 +89,16 @@ const ProductsList = () => {
               <Col>
                 <List.Item className="ProductListItem">{item.title}</List.Item>
               </Col>
-
               <Col>
                 <List.Item className="ProductListItem">
                   {item.description}
                 </List.Item>
               </Col>
-
               <Col>
                 <List.Item className="ProductListItem">
                   {item.category}
                 </List.Item>
               </Col>
-
               <Col>
                 <List.Item className="ProductListItem">
                   $ {item.price}
@@ -123,7 +121,6 @@ const ProductsList = () => {
                   </Col>
                 </Row>
               </Col>
-
               <Divider orientation="right"></Divider>
             </Row>
           </>

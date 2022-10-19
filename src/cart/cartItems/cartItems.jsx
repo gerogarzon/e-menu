@@ -3,12 +3,9 @@ import CartContext from "../../context/CartContext";
 import  "./cartItemsStyles.scss";
 
 export const ItemCart = ({ item }) => {
-  /* Traemos del context las funciones para agregar y sacar productos del carrito */
+  
   const { editItemToCart } = useContext(CartContext);
-
-  /* Desestructuramos el item para sacar solo la id */
   const { amount } = item;
-  console.log(item)
 
   return (
     <div className="cartItem">

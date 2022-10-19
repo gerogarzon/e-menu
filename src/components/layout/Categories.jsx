@@ -4,6 +4,7 @@ import todos from "../../resources/diet.png";
 const URL = process.env.REACT_APP_URL;
 
 const Categories = ({ filterByCategory, notFilter }) => {
+  
   const [category, setCategory] = useState([]);
 
   useEffect(() => {

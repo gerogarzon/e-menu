@@ -7,15 +7,11 @@ import "../../admin/AdminStyles.css";
 const URL = process.env.REACT_APP_URL;
 
 const UsersAddEditButton = (props) => {
-  // modal from react boostrap
-
+ 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [form, setForm] = useState(null);
-
-  // Form from react hookform
-
   const {
     register,
     reset,
@@ -31,7 +27,6 @@ const UsersAddEditButton = (props) => {
   });
 
   const onSubmit = async (data) => {
-   
       await axios.put(`${URL}/api/user/${props.props._id}`, data);
       Swal.fire({
         title: "User edited",
@@ -41,8 +36,7 @@ const UsersAddEditButton = (props) => {
         showConfirmButton: true,
         timer: 1200,
       });
-      setShow(false);
-    
+      setShow(false);   
   };
 
   return (
@@ -60,8 +54,6 @@ const UsersAddEditButton = (props) => {
           <Modal.Title>Add Edit</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {/* adding form from reactbootstrap */}
-
           <Form
             onSubmit={handleSubmit(onSubmit)}
             onChange={(event) => setShow(event.target.value)}

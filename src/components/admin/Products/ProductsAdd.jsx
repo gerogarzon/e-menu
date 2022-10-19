@@ -7,14 +7,11 @@ import "../../admin/AdminStyles.css";
 const URL = process.env.REACT_APP_URL;
 
 const ProductsAdd = () => {
-  // modal from react boostrap
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [form, setForm] = useState(null);
-  // Form from react hookform
-
   const { register, reset, handleSubmit } = useForm();
 
   useEffect(() => {
@@ -58,7 +55,6 @@ const ProductsAdd = () => {
       >
         +Add
       </Button>
-
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Add Menú</Modal.Title>
@@ -77,7 +73,6 @@ const ProductsAdd = () => {
                 {...register("title", { required: true, maxLength: 30 })}
               />
             </Form.Group>
-
             <Form.Group className="mb-3">
               <Form.Label>Description</Form.Label>
               <Form.Control
@@ -87,7 +82,6 @@ const ProductsAdd = () => {
                 {...register("description", { required: true, maxLength: 100 })}
               />
             </Form.Group>
-
             <Form.Group className="mb-3">
               <Form.Label htmlFor="disabledSelect">Category</Form.Label>
               <Form.Select
@@ -117,7 +111,6 @@ const ProductsAdd = () => {
                 })}
               />
             </Form.Group>
-
             <Form.Group className="mb-3">
               <Form.Label>Picture</Form.Label>
               <Form.Control
@@ -127,7 +120,6 @@ const ProductsAdd = () => {
                 {...register("picture", { required: true })}
               />
             </Form.Group>
-
             <Button variant="secondary" type="submit">
               Submit
             </Button>

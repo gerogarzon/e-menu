@@ -3,11 +3,10 @@ import axios from "axios";
 import Swal from "sweetalert2";
 const URL = process.env.REACT_APP_URL;
 
-/* Creamos el context, se le puede pasar un valor inicial */
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  /* Creamos un estado para el carrito */
+
   const [cartItems, setCartItems] = useState([]);
 
   const getProductsCart = async () => {
@@ -76,8 +75,6 @@ export const CartProvider = ({ children }) => {
   };
 
   return (
-    /* Envolvemos el children con el provider y le pasamos un objeto con las propiedades
-     que necesitamos por value */
     <CartContext.Provider
       value={{ cartItems, addItemToCart, editItemToCart, cleanCart }}
     >

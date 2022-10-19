@@ -9,6 +9,7 @@ import "./register.css";
 const URL = process.env.REACT_APP_URL;
 
 export const Register = () => {
+  
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (addUserData, event) => {

@@ -5,7 +5,7 @@ import "./styles.css";
 import Logout from "../../pages/Logout/Logout";
 
 const Header = () => {
-  /* Traemos del local storage el current user */
+ 
   let current = JSON.parse(localStorage.getItem("currentUser"));
   let isAdmin = JSON.parse(localStorage.getItem("isAdmin"));
 

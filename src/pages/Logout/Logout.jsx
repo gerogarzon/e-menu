@@ -3,7 +3,9 @@ import { Nav } from "react-bootstrap";
 import CartContext from "../../context/CartContext";
 
 const Logout = () => {
+
   const { cleanCart } = useContext(CartContext);
+  
   return (
     <>
       <Nav.Link

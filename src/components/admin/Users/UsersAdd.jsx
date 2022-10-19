@@ -7,15 +7,11 @@ import "../../admin/AdminStyles.css";
 const URL = process.env.REACT_APP_URL;
 
 const UsersAdd = () => {
-  // modal from react boostrap
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [form, setForm] = useState(null);
-
-  // Form from react hookform
-
   const {
     register,
     reset,
@@ -54,14 +50,11 @@ const UsersAdd = () => {
       >
         +Add
       </Button>
-
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Add User</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {/* adding form from reactbootstrap */}
-
           <Form
             onSubmit={handleSubmit(onSubmit)}
             onChange={(event) => setShow(event.target.value)}
@@ -75,7 +68,6 @@ const UsersAdd = () => {
                 {...register("fullname", { required: true, maxLength: 30 })}
               />
             </Form.Group>
-
             <Form.Group className="mb-3">
               <Form.Label>Email</Form.Label>
               <Form.Control
@@ -85,7 +77,6 @@ const UsersAdd = () => {
                 {...register("email", { required: true, maxLength: 50 })}
               />
             </Form.Group>
-
             <Form.Group className="mb-3">
               <Form.Label htmlFor="disabledSelect">Password</Form.Label>
               <Form.Control
@@ -95,7 +86,6 @@ const UsersAdd = () => {
                 {...register("password", { required: true, maxLength: 30 })}
               />
             </Form.Group>
-
             <Form.Group className="mb-3">
               <Form.Label>Role</Form.Label>
               <Form.Select
@@ -109,7 +99,6 @@ const UsersAdd = () => {
                 <option>CLIENT_ROLE</option>
               </Form.Select>
             </Form.Group>
-
             <Button variant="secondary" type="submit">
               Submit
             </Button>

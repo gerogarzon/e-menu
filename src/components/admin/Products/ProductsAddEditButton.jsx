@@ -7,14 +7,13 @@ import "../../admin/AdminStyles.css";
 const URL = process.env.REACT_APP_URL;
 
 const ProductsAddEditButton = (props) => {
-  // modal states
+
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  // Form from react hookform
   const [form, setForm] = useState(null);
   const { register, reset, handleSubmit } = useForm();
+
   useEffect(() => {
     setForm("");
   }, []);
@@ -22,7 +21,7 @@ const ProductsAddEditButton = (props) => {
     reset(form);
   });
 
-  // Postea en la DB la info cargada en el formulario
+  
   const onSubmit = async (data) => {
     await axios.put(`${URL}/api/menu/${props.props._id}`, data);
     Swal.fire({
@@ -36,7 +35,6 @@ const ProductsAddEditButton = (props) => {
     setShow(false);
   };
 
-  // Me traigo las categorias para renderizarlas en el select
   const [category, setCategory] = useState([]);
   const getSelectCategories = async () => {
     await fetch(`${URL}/api/categories`)
@@ -56,7 +54,6 @@ const ProductsAddEditButton = (props) => {
       >
         Edit
       </Button>
-
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Edit Menú</Modal.Title>
@@ -76,7 +73,6 @@ const ProductsAddEditButton = (props) => {
                 {...register("title", { required: true, maxLength: 30 })}
               />
             </Form.Group>
-
             <Form.Group className="mb-3">
               <Form.Label>Description</Form.Label>
               <Form.Control
@@ -87,7 +83,6 @@ const ProductsAddEditButton = (props) => {
                 {...register("description", { required: true, maxLength: 100 })}
               />
             </Form.Group>
-
             <Form.Group className="mb-3">
               <Form.Label htmlFor="disabledSelect">Category</Form.Label>
               <Form.Select
@@ -103,7 +98,6 @@ const ProductsAddEditButton = (props) => {
                 })}
               </Form.Select>
             </Form.Group>
-
             <Form.Group className="mb-3">
               <Form.Label>Price</Form.Label>
               <Form.Control
@@ -119,7 +113,6 @@ const ProductsAddEditButton = (props) => {
                 })}
               />
             </Form.Group>
-
             <Form.Group className="mb-3">
               <Form.Label>Picture</Form.Label>
               <Form.Control
@@ -130,7 +123,6 @@ const ProductsAddEditButton = (props) => {
                 {...register("picture", { required: true })}
               />
             </Form.Group>
-
             <Button variant="secondary" type="submit">
               Submit
             </Button>

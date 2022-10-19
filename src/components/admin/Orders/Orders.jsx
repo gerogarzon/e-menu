@@ -15,7 +15,6 @@ const Orders = () => {
     <>
       <Layout className="adminBackground">
         <Adminheader />
-
         <Layout>
           <Sider>
             <Aside />
@@ -24,7 +23,6 @@ const Orders = () => {
             <Divider orientation="left">
               <h5>Orders List:</h5>
             </Divider>
-
             {cartItems.length !== 0 ? (
               <>
                 <Row>
@@ -34,7 +32,6 @@ const Orders = () => {
                   <Col className="productListTitles">
                     <b>Product</b>
                   </Col>
-
                   <Col className="productListTitles">
                     <b>Amount</b>
                   </Col>

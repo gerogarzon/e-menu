@@ -6,25 +6,17 @@ import "./cartBodyStyles.scss";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
-  /* Creamos 2 estados, uno para ver si el carrito esta abierto o no 
-  y otro para obtener la cantidad de productos que tenemos en el carrito */
   const [cartOpen, setCartOpen] = useState(false);
   const [productsLength, setProductsLength] = useState(0);
-
-  /* Traemos del context los productos del carrito */
   const { cartItems } = useContext(CartContext);
-
-  /* guardo en una variable el current user de la localstorage */
   const isLogin = JSON.parse(localStorage.getItem("currentUser"));
 
-  /* Cada vez que se modifica el carrito, actualizamos la cantidad de productos */
   useEffect(() => {
     setProductsLength(
       cartItems?.reduce((previous, current) => previous + current.amount, 0)
     );
   }, [cartItems]);
 
-  /* Obtenemos el precio total */
   const total = cartItems?.reduce(
     (previous, current) => previous + current.amount * current.price,
     0

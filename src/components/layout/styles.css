@@ -39,7 +39,6 @@
   padding-bottom: 20px !important;
 }
 
-/*  ------------------------------ */
 .menus-container {
   background-color: #f5f5f5;
   background-image: url("../../resources/fondo.png");
@@ -73,7 +72,7 @@
 .body-menu {
   color: #30ad23;
 }
-/* --------------------------------------------- */
+
 .banner-img {
   background-size: cover;
   background-repeat: no-repeat;
@@ -81,7 +80,7 @@
   width: 100%;
   margin-top: 0;
 }
-/* ------------------------------------------- */
+
 .group-count {
   justify-content: center;
 }
@@ -90,7 +89,6 @@
   border-color: #dfffc0 2px !important;
   color: rgb(15, 15, 15);
   width: 100px !important;
-  /* margin-left: 110px; */
   border-radius: 20px;
 }
 .group-counter {
@@ -124,7 +122,6 @@
   margin-left: 9px !important;
   margin-right: 9px !important;
 }
-/* -------------Categories-------------------- */
 
 .categoriesMainContainer {
   display: flex;
@@ -156,8 +153,6 @@
 
 .name-category {
   font-size: 17px !important;
-  /* justify-content: center;
-    align-items: center; */
 }
 .img-category {
   width: 60px !important;
@@ -165,10 +160,9 @@
   margin: 2px;
 }
 
-/* ---------------------Footer--------------------- */
 .footer-basic {
   padding: 1.5vh 0;
-  background-color: #DFFFBF;
+  background-color: #dfffbf;
   color: #000000;
 }
 
